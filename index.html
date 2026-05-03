@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hecht Coaching – Großhecht-System</title>
+  <style>
+    :root{
+      --bg:#050607;
+      --panel:#0d1115;
+      --panel2:#121820;
+      --text:#f3f5f7;
+      --muted:#a7b0ba;
+      --line:#222a33;
+      --acid:#b9f12f;
+      --lime:#aeea21;
+      --green:#6fbf21;
+      --orange:#ff7a2f;
+      --white:#fff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1160px,calc(100% - 44px));margin:0 auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--acid);color:#070707;font-weight:950;border-radius:8px;padding:18px 28px;font-size:17px;box-shadow:0 18px 45px rgba(185,241,47,.24);transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    .btn.dark{background:#fff;color:#050607}.btn.ghost{background:transparent;color:#fff;border:1px solid #3a4652;box-shadow:none}
+    header{position:sticky;top:0;z-index:50;background:rgba(5,6,7,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}.logo{display:flex;align-items:center;gap:13px}.mark{width:52px;height:52px;border-radius:50%;overflow:hidden;flex-shrink:0}.mark img{width:100%;height:100%;object-fit:cover;display:block}.logo b{display:block;font-size:21px;letter-spacing:-1px}.logo small{color:var(--muted);font-size:12px}.navlinks{display:flex;align-items:center;gap:30px;color:#d4d9df;font-weight:800;font-size:14px}.navlinks a:hover{color:#fff}.nav .btn{padding:13px 20px;font-size:14px}
+    .hero{position:relative;overflow:hidden;padding:60px 0 80px;background:#f3f6ea;color:#202020}
+    .hero:before{content:"";position:absolute;inset:0;background:url('images/hero.jpg') center/cover no-repeat;opacity:.35}
+    .hero:after{content:"";position:absolute;inset:0;background:rgba(243,246,234,.72);pointer-events:none}
+    .hero-inner{position:relative;z-index:1}
+    .hero-eyebrow{text-align:center;text-transform:uppercase;font-size:13px;font-weight:700;letter-spacing:2.5px;color:#555;margin-bottom:16px}
+    .hero h1{font-size:clamp(40px,5.4vw,68px);line-height:1.05;letter-spacing:-2.7px;text-align:center;color:#1a1a1a;margin:0 auto 22px;max-width:1000px;font-weight:950}
+    .hero-sub{text-align:center;font-size:20px;line-height:1.55;color:#444;max-width:780px;margin:0 auto 48px;font-style:italic}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+    .hero-video{position:relative;width:100%;overflow:hidden;background:#111;box-shadow:0 14px 36px rgba(0,0,0,.15);border-radius:6px}
+    .hero-benefits{display:flex;flex-direction:column;gap:16px;padding-top:4px}
+    .hero-benefit{display:flex;align-items:start;gap:12px;font-size:15px;line-height:1.5;color:#333}
+    .hero-benefit strong{font-weight:800;color:#1a1a1a}
+    .hero-check{color:var(--acid);font-size:22px;font-weight:950;flex-shrink:0;margin-top:1px}
+    .hero-right{display:flex;flex-direction:column}
+    .hero-cta{margin-top:32px}.hero-cta .btn{background:var(--acid);color:#080808;font-size:20px;width:100%;padding:20px 28px;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.2);text-align:center;font-weight:900}
+    .hero-trust{text-align:center;font-size:14px;color:#777;margin-top:14px;font-style:italic}
+    section{padding:86px 0;border-top:1px solid rgba(255,255,255,.06)}.section-head{max-width:840px;margin:0 auto 48px;text-align:center}.section-head h2{font-size:clamp(36px,4.5vw,58px);line-height:1.08;letter-spacing:-2px}.section-head p{color:var(--muted);font-size:20px;line-height:1.6;margin-top:18px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:28px;transition:border-color .35s,box-shadow .35s,transform .35s;opacity:0;transform:translateY(40px);display:flex;flex-direction:column}.card.visible{opacity:1;transform:translateY(0);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1),border-color .35s,box-shadow .35s}.card .icon{font-size:34px;margin-bottom:18px}.card h3{font-size:23px;line-height:1.2;min-height:3.6em}.card p{color:var(--muted);font-size:17px;line-height:1.6;margin-top:12px}.danger{border-color:rgba(185,241,47,.32)}.danger .icon{color:var(--acid)}.danger:hover{border-color:rgba(185,241,47,.6);box-shadow:0 0 30px rgba(185,241,47,.2),0 0 60px rgba(185,241,47,.08);transform:translateY(-4px)}
+    .intro-problem{background:#ffffff;color:#252525;border-top:1px solid #e5e7eb;position:relative;overflow:visible}
+    .intro-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 40px 1fr;gap:0;align-items:start}
+    .intro-copy{padding-right:28px}
+    .intro-copy h2{font-size:clamp(34px,4vw,54px);line-height:1.08;letter-spacing:-1.7px;color:#222;margin-bottom:28px}
+    .intro-copy p{font-size:20px;line-height:1.48;color:#3f3f3f;margin-bottom:22px}
+    .intro-copy strong{color:#111}
+    .intro-progress{position:relative;display:flex;justify-content:center;align-self:stretch}
+    .intro-progress-track{width:3px;background:#e5e7eb;border-radius:99px;position:absolute;top:0;bottom:0;overflow:hidden}
+    .intro-progress-fill{position:absolute;top:0;left:0;width:100%;height:0%;background:var(--acid);border-radius:99px;box-shadow:0 0 10px rgba(185,241,47,.4);transition:height .08s linear}
+    .intro-progress-dot{width:12px;height:12px;border-radius:50%;background:var(--acid);position:absolute;left:50%;transform:translateX(-50%);top:0%;box-shadow:0 0 12px rgba(185,241,47,.5);transition:top .08s linear;z-index:2}
+    .intro-img-col{padding-left:28px;position:sticky;top:110px;align-self:start}
+    .intro-img{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.08)}
+    .intro-img img{width:100%;height:calc(100vh - 140px);object-fit:cover;display:block}
+    .intro-badge{position:absolute;left:22px;bottom:22px;background:#050607;color:#fff;border:1px solid rgba(185,241,47,.35);border-radius:14px;padding:16px 18px;max-width:330px}
+    .intro-badge b{display:block;color:var(--acid);font-size:14px;text-transform:uppercase;letter-spacing:1px}
+    .intro-badge span{display:block;margin-top:5px;font-weight:850;line-height:1.25}
+    .intro-cta{margin-top:32px}
+    .intro-cta .btn{background:var(--acid);color:#080808;width:100%;font-size:21px;border-radius:5px;box-shadow:0 6px 14px rgba(0,0,0,.25);display:flex;justify-content:center;text-align:center}
+    .split-section{background:#fff;border-top:1px solid #e5e7eb}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}.quote-box{background:#f7f8f9;border-left:5px solid var(--acid);padding:36px;border-radius:14px}.quote-box h2{font-size:44px;line-height:1.12;letter-spacing:-1.5px;color:#1a1a1a}.quote-box p{color:#444;font-size:20px;line-height:1.65;margin-top:24px}.quote-box strong{color:#1a1a1a}.image-block{height:560px;border-radius:22px;overflow:hidden;border:1px solid rgba(0,0,0,.1);box-shadow:0 24px 70px rgba(0,0,0,.12)}.image-block img{width:100%;height:100%;object-fit:cover}
+    .methode{position:relative;overflow:hidden;background:#050607;padding:100px 0 110px}
+    .methode-bg{position:absolute;inset:0;background:url('images/hecht-bg.jpg') center/cover no-repeat;opacity:.15;filter:brightness(.4)}
+    .methode-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(14,18,22,.6) 0%,rgba(5,6,7,.92) 70%);pointer-events:none}
+    .methode .section-head{position:relative;z-index:2}.methode .section-head h2{color:#fff;font-size:clamp(34px,4.5vw,56px)}
+    .fcf-wrap{position:relative;z-index:2;width:100%;max-width:1300px;margin:0 auto;aspect-ratio:13/10;background:url('images/hecht-bg.jpg') center/cover no-repeat;overflow:hidden;border-radius:18px}
+    .fcf-wrap::before{content:"";position:absolute;inset:0;background:rgba(5,6,7,.62);z-index:0}
+    .fcf-wrap>*{position:relative;z-index:1}
+    .fcf-svg{display:block;position:absolute;inset:0;width:100%;height:100%}
+    .fcf-card{position:absolute;width:28%;background:rgba(15,18,22,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 20px;box-shadow:0 8px 24px rgba(0,0,0,.6);opacity:0;transition:opacity .3s ease,transform .3s ease;pointer-events:none;font-family:system-ui,-apple-system,sans-serif}
+    .fcf-card.visible{opacity:1;pointer-events:auto}
+    .fcf-card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .fcf-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#0A0D10;flex-shrink:0}
+    .fcf-card-title{font-size:18px;font-weight:700;color:#fff;line-height:1.3}
+    .fcf-card-desc{font-size:15px;line-height:1.6;color:#A8ACB0}
+    .fcf-tape{position:absolute;left:20px;right:20px;bottom:16px;height:34px;z-index:5}
+    .fcf-tape svg{width:100%;height:100%;display:block}
+    .methode-cta{position:relative;z-index:2;text-align:center;margin-top:56px}
+    .methode-cta .btn{background:var(--acid);color:#080808;font-size:21px;padding:22px 36px;border-radius:5px;box-shadow:0 6px 20px rgba(185,241,47,.3)}
+    @media(max-width:768px){.fcf-wrap{aspect-ratio:auto;height:auto;min-height:600px;padding-bottom:30px}.fcf-card{width:40%}}
+    .offer{background:#fff;color:#10151b;padding:100px 0}
+    .offer .section-head{text-align:center;max-width:800px;margin:0 auto 60px}
+    .offer .section-eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--acid);margin-bottom:16px;background:#0a0d10;padding:8px 18px;border-radius:6px}
+    .offer .section-head h2{font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.15;color:#10151b;margin-bottom:20px}
+    .offer .section-head .offer-sub{font-size:18px;line-height:1.6;color:#596471;max-width:640px;margin:0 auto}
+    .offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1080px;margin:0 auto}
+    .offer-card{background:#0a0d10;border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:54px 48px;position:relative;overflow:hidden;transition:border-color .4s,box-shadow .4s,transform .4s;opacity:0;transform:translateY(32px)}
+    .offer-card.visible{opacity:1;transform:translateY(0)}
+    .offer-card:hover{border-color:rgba(185,241,47,.25);box-shadow:0 16px 48px rgba(185,241,47,.1);transform:translateY(-4px)}
+    .offer-card .card-icon{width:52px;height:52px;border-radius:14px;background:rgba(185,241,47,.08);display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:24px}
+    .offer-card h3{font-size:22px;font-weight:700;color:#fff;margin-bottom:14px;line-height:1.3}
+    .offer-card .card-text{font-size:16px;line-height:1.7;color:#8a919a}
+    .offer-card .card-text strong{color:#c0c6cc}
+    .offer-card .card-accent{display:block;margin-top:18px;font-size:15px;font-weight:600;color:var(--acid);line-height:1.5}
+    @media(max-width:768px){.offer-grid{grid-template-columns:1fr;gap:20px}.offer-card{padding:36px 28px}}
+    .story-slider{position:relative}
+    .story-viewport{overflow:hidden;padding-bottom:4px}
+    .story-track{display:flex;gap:20px;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+    .story{background:#0d1115;border:1px solid #252e38;border-radius:16px;overflow:hidden;flex:0 0 calc((100% - 40px)/3);display:flex;flex-direction:column;transition:border-color .3s,box-shadow .3s}
+    .story:hover{border-color:rgba(185,241,47,.3);box-shadow:0 8px 32px rgba(185,241,47,.08)}
+    .story-img{position:relative;padding-top:56.25%;background:#111;overflow:hidden}.story-img iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+    .story-body{padding:20px 22px 24px;display:flex;flex-direction:column;max-height:220px;position:relative}
+    .story-body h3{font-size:18px;font-weight:800;line-height:1.3;margin-bottom:10px;flex-shrink:0}
+    .story-meta{font-size:13px;color:var(--muted);margin-bottom:10px;font-weight:600;flex-shrink:0}
+    .story-text-wrap{overflow-y:auto;flex:1;min-height:0;position:relative;scrollbar-width:none;-ms-overflow-style:none}
+    .story-text-wrap::-webkit-scrollbar{display:none}
+    .story-text-wrap p{color:#b5bdc6;font-size:15px;line-height:1.6;margin:0}
+    .story-scroll-track{height:3px;background:#1a1f26;border-radius:99px;margin-top:14px;overflow:hidden;flex-shrink:0}
+    .story-scroll-fill{height:100%;width:0%;background:var(--acid);border-radius:99px;box-shadow:0 0 8px rgba(185,241,47,.4);transition:width .1s linear}
+    .tag{display:inline-block;background:rgba(183,255,56,.12);border:1px solid rgba(183,255,56,.3);color:var(--acid);font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:1.2px;padding:6px 10px;border-radius:999px;margin-bottom:10px}
+    .slider-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:32px}
+    .slider-btn{width:44px;height:44px;border-radius:50%;background:var(--acid);color:#080808;border:none;font-size:24px;font-weight:900;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.3);transition:.2s}.slider-btn:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(185,241,47,.3)}.slider-btn:disabled{opacity:.25;cursor:default;transform:none}
+    .slider-dots{display:flex;gap:8px}.slider-dot{width:10px;height:10px;border-radius:50%;background:#2a3040;border:none;cursor:pointer;transition:.25s;padding:0}.slider-dot.active{background:var(--acid);box-shadow:0 0 8px rgba(185,241,47,.4);transform:scale(1.2)}
+    .slider-hint{color:var(--muted);font-size:14px;text-align:center;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+    .slider-hint-arrow{display:inline-block;animation:swipeHint 1.5s ease-in-out infinite}
+    @keyframes swipeHint{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(8px);opacity:1}}
+    @media(max-width:1024px) and (min-width:641px){.story{flex:0 0 calc((100% - 20px)/2)}}
+    @media(max-width:640px){.story{flex:0 0 100%}.story-track{gap:16px}}
+    .scroll-bridge{text-align:center;padding:5px 0;background:#050607;border-top:none}
+    .scroll-bridge-arrow{display:inline-block;color:var(--acid);font-size:28px;line-height:1;animation:bounceDown 1.8s ease-in-out infinite;filter:drop-shadow(0 0 8px rgba(185,241,47,.4));cursor:pointer}
+    @keyframes bounceDown{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(10px);opacity:1}}
+    .community{background:#050607;padding:0;border-top:none}
+    .community-host{position:relative}
+    .community-host{max-width:1200px;margin:0 auto;padding-bottom:24px;overflow:hidden}
+    .community .sect-head{text-align:center;padding:16px 40px 32px}
+    .community .sect-eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--acid);margin-bottom:16px;background:#0a0d10;padding:8px 18px;border-radius:6px}
+    .community .sect-title{font-size:52px;font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:0 0 14px;text-wrap:balance;color:#fff}
+    .community .sect-title em{color:var(--acid);font-style:normal;text-shadow:0 0 24px rgba(198,242,78,.4)}
+    .community .sect-sub{color:rgba(255,255,255,.55);font-size:17px;max-width:580px;margin:0 auto;line-height:1.5}
+    .cm-tile{position:relative;overflow:hidden;border-radius:6px;background:#0d0f10;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s}
+    .cm-tile img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95) brightness(.92);transition:filter .35s,transform .6s cubic-bezier(.2,.7,.3,1)}
+    .cm-tile::after{content:"";position:absolute;inset:0;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);pointer-events:none;transition:box-shadow .35s}
+    .cm-tile:hover{transform:translateY(-2px);z-index:5}
+    .cm-tile:hover img{filter:saturate(1.1) brightness(1.05);transform:scale(1.04)}
+    .cm-tile:hover::after{box-shadow:inset 0 0 0 1.5px var(--acid),0 0 0 1px rgba(198,242,78,.12),0 14px 40px rgba(198,242,78,.25)}
+    .cm-tile--hero::after{box-shadow:inset 0 0 0 1.5px rgba(198,242,78,.3)}
+    .cm-tile--hero:hover::after{box-shadow:inset 0 0 0 2px var(--acid),0 0 0 1px rgba(198,242,78,.12),0 18px 50px rgba(198,242,78,.3)}
+    .cm-badge{position:absolute;bottom:14px;left:14px;padding:6px 12px;background:rgba(5,6,7,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(198,242,78,.3);border-radius:999px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--acid);font-weight:700;pointer-events:none}
+    .cm-mosaic{display:grid;grid-template-columns:repeat(8,1fr);grid-auto-rows:80px;gap:10px;padding:0 40px 24px}
+    .cm-mosaic .t1{grid-column:1/span 2;grid-row:1/span 3}
+    .cm-mosaic .t2{grid-column:3/span 1;grid-row:1/span 4}
+    .cm-mosaic .t3{grid-column:4/span 2;grid-row:1/span 3}
+    .cm-mosaic .t4{grid-column:6/span 1;grid-row:1/span 4}
+    .cm-mosaic .t5{grid-column:7/span 2;grid-row:1/span 3}
+    .cm-mosaic .t6{grid-column:1/span 2;grid-row:4/span 3}
+    .cm-mosaic .t7{grid-column:4/span 2;grid-row:4/span 3}
+    .cm-mosaic .t8{grid-column:7/span 2;grid-row:4/span 3}
+    .cm-marquee{position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent 0,#000 80px,#000 calc(100% - 80px),transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 80px,#000 calc(100% - 80px),transparent 100%);padding:8px 0 24px}
+    .cm-marquee-track{display:flex;gap:14px;width:max-content;will-change:transform;animation:cmMarquee 48s linear infinite}
+    .cm-marquee:hover .cm-marquee-track{animation-play-state:paused}
+    @keyframes cmMarquee{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 7px))}}
+    .cm-marquee-track .cm-tile{width:180px;height:240px;flex-shrink:0}
+    .cm-cta{position:relative;z-index:2;text-align:center;padding:40px 0 56px}
+    .cm-cta .btn{background:var(--acid);color:#080808;font-size:21px;padding:22px 36px;border-radius:5px;box-shadow:0 6px 20px rgba(185,241,47,.3);text-decoration:none;font-weight:950;display:inline-flex;align-items:center;justify-content:center;transition:.2s}
+    .cm-cta .btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    @media(max-width:768px){.cm-mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:auto;padding:0 20px 16px}.cm-mosaic .t1,.cm-mosaic .t2,.cm-mosaic .t3,.cm-mosaic .t4,.cm-mosaic .t5,.cm-mosaic .t6,.cm-mosaic .t7,.cm-mosaic .t8{grid-column:auto;grid-row:auto}.cm-mosaic .t3{grid-column:1/span 2}.cm-mosaic .cm-tile img{height:200px}.community .sect-title{font-size:36px}.cm-marquee-track .cm-tile{width:130px;height:180px}.cm-marquee-track{animation-duration:30s}}
+    .cta-band{background:linear-gradient(135deg,#b7ff38,#6fd42d);color:#081008;text-align:center}.cta-band h2{font-size:46px;line-height:1.08;letter-spacing:-2px}.cta-band p{font-size:20px;color:#1c2b14;max-width:760px;margin:20px auto 30px}.cta-band .btn{background:#050607;color:#fff;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+    .faq{background:#fff;color:#10151b}.faq .section-head h2{color:#10151b}
+    .faq-list{max-width:820px;margin:0 auto;background:#0a0d10;border-radius:18px;padding:8px 36px;box-shadow:0 24px 70px rgba(0,0,0,.1)}
+    .faq-item{border-bottom:1px solid #1e252e}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:25px 0;cursor:pointer;-webkit-user-select:none;user-select:none}
+    .faq-q h3{font-size:21px;margin:0;pointer-events:none;color:#fff}
+    .faq-icon{width:28px;height:28px;flex-shrink:0;position:relative;transition:transform .3s}
+    .faq-icon::before,.faq-icon::after{content:"";position:absolute;background:var(--acid);border-radius:2px;top:50%;left:50%;transform:translate(-50%,-50%)}
+    .faq-icon::before{width:16px;height:2px}
+    .faq-icon::after{width:2px;height:16px;transition:transform .3s}
+    .faq-item.open .faq-icon::after{transform:translate(-50%,-50%) rotate(90deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.22,1,.36,1)}
+    .faq-item.open .faq-a{max-height:400px}
+    .faq-a p{color:#a9b2bc;font-size:17px;line-height:1.65;padding:0 0 25px}
+    @media(max-width:640px){.faq-list{padding:4px 20px}}
+    .about{background:#050607;padding:100px 0;border-top:1px solid rgba(255,255,255,.04)}
+    .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+    .about-card{position:relative;border-radius:18px;overflow:hidden;background:#0d0f10;border:1px solid rgba(255,255,255,.06)}
+    .about-card-img{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden}
+    .about-card-img img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95) brightness(.9)}
+    .about-card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,6,7,.95) 0%,rgba(5,6,7,.4) 40%,transparent 70%);pointer-events:none}
+    .about-card-info{position:absolute;bottom:0;left:0;right:0;padding:28px 24px;z-index:2}
+    .about-card-name{font-size:28px;font-weight:800;color:#fff;margin-bottom:4px}
+    .about-card-role{font-size:14px;color:rgba(255,255,255,.55);letter-spacing:.5px}
+    .about-badges{display:flex;flex-wrap:wrap;gap:8px;padding:18px 24px 22px}
+    .about-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(185,241,47,.06);border:1px solid rgba(185,241,47,.15);border-radius:999px;font-size:11px;font-weight:700;color:var(--acid);letter-spacing:.3px;white-space:nowrap}
+    .about-socials{display:flex;flex-direction:column;gap:0;padding:0 24px 24px}
+    .about-social{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid rgba(255,255,255,.06);color:#8a919a;font-size:14px;font-weight:600;text-decoration:none;transition:color .25s}
+    .about-social:first-child{border-top:none}
+    .about-social:hover{color:var(--acid)}
+    .about-social svg{width:20px;height:20px;flex-shrink:0;fill:currentColor}
+    .about-text h2{font-size:clamp(32px,4vw,48px);font-weight:800;color:#fff;margin-bottom:32px;letter-spacing:-1px;line-height:1.1}
+    .about-text p{font-size:18px;line-height:1.7;color:#8a919a;margin-bottom:22px}
+    .about-text strong{color:#c8cdd2}
+    .about-cta{margin-top:36px}
+    .about-cta .btn{font-size:21px;padding:22px 36px;border-radius:5px;box-shadow:0 6px 20px rgba(185,241,47,.3)}
+    @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}.about-card-img{aspect-ratio:4/3}.about{padding:70px 0}}
+    .newsletter{background:#fff;border-top:1px solid #e5e7eb;padding:100px 0}
+    .nl-box{max-width:600px;margin:0 auto;text-align:center;background:#0a0d10;border-radius:18px;padding:48px 44px;box-shadow:0 24px 70px rgba(0,0,0,.1)}
+    .nl-eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--acid);margin-bottom:16px;background:#0a0d10;padding:8px 18px;border-radius:6px}
+    .nl-box h2{font-size:clamp(28px,4vw,40px);font-weight:800;line-height:1.15;color:#fff;margin-bottom:14px;letter-spacing:-.5px}
+    .nl-box .nl-sub{font-size:17px;line-height:1.6;color:#8a919a;margin-bottom:36px}
+    .nl-form{display:flex;flex-direction:column;gap:14px}
+    .nl-field{position:relative}
+    .nl-field input{width:100%;padding:16px 20px;background:#0d1115;border:1px solid #252e38;border-radius:10px;color:#fff;font-size:16px;font-family:inherit;outline:none;transition:border-color .25s,box-shadow .25s;box-sizing:border-box}
+    .nl-field input::placeholder{color:#555d68}
+    .nl-field input:focus{border-color:var(--acid);box-shadow:0 0 0 3px rgba(185,241,47,.12)}
+    .nl-field input.nl-error{border-color:#E5484D;box-shadow:0 0 0 3px rgba(229,72,77,.12)}
+    .nl-error-msg{color:#E5484D;font-size:13px;text-align:left;margin-top:5px;display:none}
+    .nl-field.has-error .nl-error-msg{display:block}
+    .nl-submit{width:100%;padding:18px 28px;background:var(--acid);color:#080808;font-size:19px;font-weight:900;border:none;border-radius:8px;cursor:pointer;font-family:inherit;box-shadow:0 6px 20px rgba(185,241,47,.3);transition:transform .2s,box-shadow .2s,filter .2s;margin-top:4px}
+    .nl-submit:hover{transform:translateY(-2px);filter:brightness(1.04);box-shadow:0 10px 30px rgba(185,241,47,.4)}
+    .nl-submit:active{transform:translateY(0)}
+    .nl-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;filter:none}
+    .nl-trust{font-size:13px;color:#555d68;margin-top:18px;display:flex;align-items:center;justify-content:center;gap:6px}
+    .nl-trust svg{flex-shrink:0;stroke:#555d68}
+    .nl-success{display:none;text-align:center;padding:24px 0}
+    .nl-success.active{display:block}
+    .nl-success-icon{width:56px;height:56px;border-radius:50%;background:rgba(185,241,47,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px}
+    .nl-success h3{font-size:22px;font-weight:800;color:#fff;margin-bottom:10px}
+    .nl-success p{font-size:16px;color:#8a919a;line-height:1.6}
+    .nl-form.hidden{display:none}
+    @media(max-width:640px){.nl-box{padding:36px 24px}}
+    footer{background:#020303;color:#737d87;text-align:center;padding:34px 0;border-top:1px solid #171d23}.footer-logo{width:150px;height:150px;border-radius:50%;margin:0 auto 14px;overflow:hidden}.footer-logo img{width:100%;height:100%;object-fit:cover;display:block}
+    @media(max-width:900px){.intro-grid{grid-template-columns:1fr}.intro-progress{display:none}.intro-img-col{position:static;padding-left:0;margin-top:32px}.intro-img img{height:420px}.intro-copy{padding-right:0}.intro-copy h2{font-size:36px}.navlinks{display:none}.hero-grid,.split,.cards,.matrix-grid,.offer-grid,.story-grid,.proof{grid-template-columns:1fr}.video{height:300px}.image-block{height:360px}h1{font-size:44px}.hero p{font-size:19px}.cards{gap:14px}}
+
+    /* ── Cookie Banner ── */
+    .cookie-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9998;opacity:0;transition:opacity .3s;pointer-events:none}
+    .cookie-overlay.active{opacity:1;pointer-events:auto}
+    .cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0a0d10;border-top:1px solid rgba(255,255,255,.08);padding:22px 0;transform:translateY(100%);transition:transform .4s cubic-bezier(.22,1,.36,1);box-shadow:0 -8px 40px rgba(0,0,0,.5)}
+    .cookie-bar.active{transform:translateY(0)}
+    .cookie-bar-inner{max-width:1160px;margin:0 auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+    .cookie-bar-text{flex:1;min-width:280px;font-size:14px;line-height:1.6;color:#a7b0ba}
+    .cookie-bar-text a{color:var(--acid);text-decoration:underline;text-underline-offset:2px;font-weight:600}
+    .cookie-bar-text a:hover{color:#d4ff6e}
+    .cookie-bar-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+    .cookie-btn{padding:12px 22px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:transform .15s,box-shadow .2s,background .2s}
+    .cookie-btn-reject{background:transparent;color:#a7b0ba;border:1px solid #2a3140}.cookie-btn-reject:hover{background:rgba(255,255,255,.05);color:#fff}
+    .cookie-btn-settings{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.12)}.cookie-btn-settings:hover{background:rgba(255,255,255,.14)}
+    .cookie-btn-accept{background:var(--acid);color:#070707;box-shadow:0 0 20px rgba(185,241,47,.25)}.cookie-btn-accept:hover{transform:translateY(-1px);box-shadow:0 0 28px rgba(185,241,47,.4)}
+
+    /* Settings Modal */
+    .cookie-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.92);z-index:10000;background:#0a0d10;border:1px solid rgba(255,255,255,.1);border-radius:18px;width:min(520px,calc(100% - 32px));max-height:calc(100vh - 40px);overflow-y:auto;padding:36px;box-shadow:0 24px 80px rgba(0,0,0,.7);opacity:0;pointer-events:none;transition:opacity .25s,transform .3s cubic-bezier(.22,1,.36,1)}
+    .cookie-modal.active{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+    .cookie-modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .cookie-modal-head h3{font-size:22px;font-weight:800;color:#fff}
+    .cookie-modal-close{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#a7b0ba;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s}
+    .cookie-modal-close:hover{background:rgba(255,255,255,.12);color:#fff}
+    .cookie-modal-desc{font-size:14px;line-height:1.6;color:#7a8490;margin-bottom:28px}
+    .cookie-cat{padding:18px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .cookie-cat:last-of-type{border-bottom:1px solid rgba(255,255,255,.06)}
+    .cookie-cat-info h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+    .cookie-cat-info p{font-size:13px;color:#7a8490;line-height:1.5}
+    .cookie-cat-badge{font-size:11px;font-weight:700;color:var(--acid);background:rgba(185,241,47,.1);border:1px solid rgba(185,241,47,.2);border-radius:999px;padding:4px 12px;white-space:nowrap;letter-spacing:.04em}
+    /* Toggle switch */
+    .cookie-toggle{position:relative;width:44px;height:24px;flex-shrink:0}
+    .cookie-toggle input{opacity:0;width:0;height:0;position:absolute}
+    .cookie-toggle-track{position:absolute;inset:0;background:#2a3140;border-radius:99px;cursor:pointer;transition:background .25s}
+    .cookie-toggle-track::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;background:#5a6370;border-radius:50%;transition:transform .25s,background .25s}
+    .cookie-toggle input:checked+.cookie-toggle-track{background:rgba(185,241,47,.2)}
+    .cookie-toggle input:checked+.cookie-toggle-track::after{transform:translateX(20px);background:var(--acid);box-shadow:0 0 8px rgba(185,241,47,.4)}
+    .cookie-toggle input:disabled+.cookie-toggle-track{opacity:.5;cursor:not-allowed}
+    .cookie-toggle input:disabled:checked+.cookie-toggle-track{opacity:1}
+    .cookie-modal-btns{display:flex;gap:10px;margin-top:28px;justify-content:flex-end}
+    @media(max-width:640px){
+      .cookie-bar-inner{flex-direction:column;text-align:center}
+      .cookie-bar-btns{width:100%;justify-content:center}
+      .cookie-modal{padding:24px}
+    }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#"><div class="mark"><img src="images/logo.jpg" alt="Pike Coaching Logo"></div><div><b>PIKE COACHING</b><small>Max Guder · Catch the Biggest</small></div></a>
+    <nav class="navlinks"><a href="#problem">Problem</a><a href="#system">Methode</a><a href="#angebot">Coaching</a><a href="#faq">FAQ</a><a href="#about">Über</a><a class="btn" href="termin.html">Erstgespräch buchen</a></nav>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-eyebrow">Für Hechtangler, die endlich konstant fangen wollen</div>
+      <h1>Maximiere deine Angelzeit.<br>Fange kapitale Hechte.</h1>
+      <p class="hero-sub">Wie du mit einem klaren System große Hechte gezielt findest, verstehst und fängst – ohne planlos Spots abzufahren oder deine Zeit auf dem Wasser zu verschwenden.</p>
+      <div class="hero-grid">
+        <div class="hero-video">
+          <div id="vidalytics_embed_VorBXkW21Bl0XAq1" style="width:100%;position:relative;padding-top:56.25%;"></div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-benefits">
+            <div class="hero-benefit"><span class="hero-check">✓</span><p><strong>Entdecke die geheimen Hotspots:</strong> Erfahre endlich, wie du die Top-Plätze für kapitale Hechte findest und dein Echolot optimal nutzt, um sie aufzuspüren.</p></div>
+            <div class="hero-benefit"><span class="hero-check">✓</span><p><strong>Meistere die Großhecht-Techniken:</strong> Nutze bewährte Schritt-für-Schritt-Anleitungen, um die effektivsten Angeltechniken zu erlernen und Hechte systematisch zu überlisten.</p></div>
+            <div class="hero-benefit"><span class="hero-check">✓</span><p><strong>Optimiere deine Angelausflüge:</strong> Lerne, wie du deine Zeit auf dem Wasser maximal ausnutzt, um regelmäßig Top-Ergebnisse zu erzielen und deine Fangquote zu vervielfachen.</p></div>
+          </div>
+          <div class="hero-cta"><a class="btn" href="termin.html">Jetzt unverbindliches Erstgespräch buchen!</a></div>
+          <div class="hero-trust">(Hunderte Angler zum Traumhecht gebracht)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="intro-problem" id="introSection">
+    <div class="container intro-grid">
+      <div class="intro-copy">
+        <h2>Es ist kein Problem, wenn du NOCH nicht die allergrößten Hechte fängst!</h2>
+        <p>Du willst es dir kaum eingestehen aber deine Fänge sind nicht so gut, wie du sie gerne hättest. Du besitzt einen Haufen Tackle aber du weißt nicht, wie es richtig funktioniert.</p>
+        <p>Du hast nicht viel Zeit zum Angeln, weil du auch andere Dinge zu tun hast.</p>
+        <p>Nerven dich die Sprüche von deinen Kumpels, dass das Wochenende wieder erfolglos war?</p>
+        <p>All die Stunden auf dem See...<br>
+        All die Sprüche, wenn du ohne Monster-Hecht nach Hause kommst...<br>
+        Der Wunsch, endlich einen richtig dicken Fisch zu fangen...<br>
+        Das doofe Gefühl, wenn es einfach nicht klappt...</p>
+        <p><strong>KEINE SORGE!</strong> Viele Angler kennen das!</p>
+        <p>Du willst jemanden, der dir zeigt, wie du die größten Hechte fängst?</p>
+        <p>Super! Du hast den Richtigen gefunden!</p>
+        <div class="intro-cta"><a class="btn" href="termin.html">Jetzt unverbindliches Erstgespräch vereinbaren&nbsp; »</a></div>
+      </div>
+      <div class="intro-progress">
+        <div class="intro-progress-track">
+          <div class="intro-progress-fill" id="introFill"></div>
+        </div>
+        <div class="intro-progress-dot" id="introDot"></div>
+      </div>
+      <div class="intro-img-col">
+        <div class="intro-img">
+          <img src="images/max-sektion-2.jpg" alt="Kapitaler Hecht Fang">
+          <div class="intro-badge"><b>Für ambitionierte Angler</b><span>Mehr Kontrolle, weniger Rätselraten – auch bei begrenzter Angelzeit.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="problem">
+    <div class="container">
+      <div class="section-head">
+        <h2>Das Problem ist nicht, dass du zu wenig investierst.</h2>
+        <p>Du investierst wahrscheinlich mehr als die meisten: Boot, Echolot, Köder, Zeit, Sprit, Urlaubstage. Aber wenn der Plan fehlt, wird aus High-End-Ausrüstung nur teures Raten.</p>
+      </div>
+      <div class="cards">
+        <div class="card danger"><div class="icon">⌁</div><h3>8 Stunden Zeit am Wasser. Wieder nur 70er.</h3><p>Du weißt, dass größere Fische da sind. Aber du kommst nicht konstant an sie ran.</p></div>
+        <div class="card danger"><div class="icon">◉</div><h3>Du siehst Fisch am Echolot – aber triffst falsche Entscheidungen.</h3><p>Anzeige ist nicht Verständnis. Ohne klare Interpretation verlierst du Sekunden, Spots und Chancen.</p></div>
+        <div class="card danger"><div class="icon">↯</div><h3>Andere posten Meterfische. Du fragst dich, was du übersiehst.</h3><p>Das kratzt am Ego. Nicht, weil du Anfänger bist – sondern weil du weißt, dass mehr möglich sein müsste.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="split-section">
+    <div class="container split">
+      <div class="image-block"><img src="images/grosse-hechte.jpg" alt="Große Hechte"></div>
+      <div class="quote-box">
+        <h2>Große Hechte verzeihen keine planlose Angelei.</h2>
+        <p>Wenn du wenig Zeit hast, kannst du es dir nicht leisten, halbe Tage falsch zu stehen, falsche Tiefen abzusuchen oder pelagische Kontakte falsch anzusprechen.</p>
+        <p><strong>Du brauchst Kontrolle:</strong> über Spots, Technik, Timing, Köderführung und die Entscheidung, wann du bleibst – und wann du gehst.</p>
+      </div>
+    </div>
+  </section>
+  <section id="system" class="methode">
+    <div class="methode-bg"></div>
+    <div class="methode-overlay"></div>
+    <div class="container">
+      <div class="section-head">
+        <h2>Meine Methode: Schritt-für-Schritt zum Monster-Hecht</h2>
+      </div>
+      <div class="fcf-wrap" id="fcfWrap">
+        <!-- SVG: path + nodes rendered by JS -->
+        <!-- Cards rendered by JS -->
+        <div class="fcf-tape" id="fcfTape"></div>
+      </div>
+      <div class="methode-cta"><a class="btn" href="termin.html">Jetzt unverbindliches Erstgespräch vereinbaren&nbsp; »</a></div>
+    </div>
+  </section>
+  <section id="angebot" class="offer">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-eyebrow">Angel mit System</span>
+        <h2>Das Coaching ist kein Guiding. Es ist dein nächstes Level als Hechtangler.</h2>
+        <p class="offer-sub">Genau das unterscheidet Angler, die „ab und zu Glück haben"… von denen, die konstant große Hechte fangen.</p>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card" data-delay="0">
+          <div class="card-icon">🎯</div>
+          <h3>Du hörst auf zu raten</h3>
+          <p class="card-text">Du weißt nicht mehr nur „wo es gut aussehen könnte" – du erkennst, wo ein Spot wirklich Potential hat.</p>
+          <span class="card-accent">Kein Blindwerfen mehr. Keine Hoffnung.</span>
+        </div>
+        <div class="offer-card" data-delay="1">
+          <div class="card-icon">🧭</div>
+          <h3>Du triffst klare Entscheidungen</h3>
+          <p class="card-text">Du weißt: <strong>wann du bleiben musst</strong>, <strong>wann du wechseln solltest</strong> und <strong>wann es keinen Sinn macht</strong>.</p>
+          <span class="card-accent">Du verschwendest keine Zeit mehr auf dem Wasser.</span>
+        </div>
+        <div class="offer-card" data-delay="2">
+          <div class="card-icon">📡</div>
+          <h3>Du verstehst, was wirklich passiert</h3>
+          <p class="card-text">Egal ob mit Echolot oder ohne: Du erkennst <strong>Fischverhalten</strong>, <strong>Aktivität</strong> und <strong>Reaktionen</strong>.</p>
+          <span class="card-accent">Du siehst nicht mehr nur „Bilder" – du verstehst sie.</span>
+        </div>
+        <div class="offer-card" data-delay="3">
+          <div class="card-icon">🏆</div>
+          <h3>Du wirst berechenbar erfolgreich</h3>
+          <p class="card-text">Große Hechte sind für dich kein Zufall mehr. Du kannst Ergebnisse wiederholen und Fangerfolge bewusst steuern.</p>
+          <span class="card-accent">Genau das ist der Punkt, den die meisten nie erreichen.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Was sagen meine Kunden?</h2>
+      </div>
+      <div class="story-slider" id="storySlider">
+        <div class="story-viewport">
+          <div class="story-track" id="storyTrack">
+            <div class="story">
+              <div class="story-img"><iframe src="https://player.mediadelivery.net/embed/646386/0bb77fe5-506e-4b95-9dd4-26917859a955?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+              <div class="story-body"><div class="story-meta">Sören aus Niedersachsen</div><h3>Vom Rekordzander zum 128cm-Hecht</h3><div class="story-text-wrap"><p>Sören ist ein unfassbar ambitionierter Angler, der jede Menge richtig große Fische in seinem Leben gefangen hat. Er fing den norwegischen Rekordzander mit 13,67 kg und 101 cm Länge, doch mit wirklich riesigen Hechten wollte es nicht so richtig bei ihm klappen. Wir begannen mit einer intensiven Auseinandersetzung mit der Echolottechnik, und ich brachte ihm eine Menge über das Jagdverhalten großer Hechte bei. Mittlerweile fängt er nicht nur regelmäßig seine Meterfische, sondern er fing auch einen absoluten Rekordhecht mit 128 cm Länge.</p></div><div class="story-scroll-track"><div class="story-scroll-fill"></div></div></div>
+            </div>
+            <div class="story">
+              <div class="story-img"><iframe src="https://player.mediadelivery.net/embed/646386/8f166170-ce88-493e-9ea7-17cd2a062366?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+              <div class="story-body"><div class="story-meta">Josef aus Belgien</div><h3>Erster 120+-Hecht vom Ufer</h3><div class="story-text-wrap"><p>Josef ist ein begeisterter Angler, der bereits sehr viel Zeit am Wasser verbracht hat. Egal ob in den Niederlanden, in seiner Heimat Belgien oder auch in Schweden – vor ihm war kein Gewässer sicher. Der Fangerfolg blieb jedoch lange eher ernüchternd. Als er mit dem Pikecoaching begann, saß mir ein äußerst motivierter und fleißiger Angler gegenüber, der seine „Hausaufgaben" in kürzester Zeit umsetzte und schnell verstand, wie Hechte wirklich ticken. Im Coaching fing er seinen ersten 120+-Hecht vom Ufer und hat sich mittlerweile zu einem extrem starken Angler entwickelt, der die Hechte regelmäßig am Wickel hat.</p></div><div class="story-scroll-track"><div class="story-scroll-fill"></div></div></div>
+            </div>
+            <div class="story">
+              <div class="story-img"><iframe src="https://player.mediadelivery.net/embed/646386/b8a9a2ce-0ec7-410d-9cea-5ae1eeeef5af?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+              <div class="story-body"><div class="story-meta">Pascal Nähe Niederlande</div><h3>Vom Fast-Aufhörer zum 115cm-PB</h3><div class="story-text-wrap"><p>Pascal angelte seit etwa 1,5 Jahren, als er kurz davor war, das Angeln wieder aufzugeben. Fehlende Fänge frustrierten ihn, und auch YouTube-Videos und klassische Ratgeber brachten ihn nicht weiter. Seine Lernkurve ist beeindruckend: Mit gutem Gespür am Wasser und der Fähigkeit, einen Plan konsequent durchzuziehen, fing er in den ersten zehn Wochen vier Hechte über 90 cm, darunter seinen neuen Ufer-PB mit 115 cm. Heute erkundet Pascal bevorzugt neue Gewässer und lockt Hechte auch aus unbekannten Revieren erfolgreich hervor.</p></div><div class="story-scroll-track"><div class="story-scroll-fill"></div></div></div>
+            </div>
+            <div class="story">
+              <div class="story-img"><iframe src="https://player.mediadelivery.net/embed/646386/96aa5eed-9a6f-42a4-a147-78b1963d7381?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+              <div class="story-body"><div class="story-meta">Fabio vom Rhein</div><h3>Vom Einsteiger zum Meterhecht in 4 Monaten</h3><div class="story-text-wrap"><p>Fabio war kompletter Einsteiger im Hechtangeln. Seinen Fischereischein hatte er erst ein Jahr zuvor gemacht und noch nie gezielt auf Hecht gefischt. Schon nach wenigen Tagen im Coaching fingen er und sein Sohn ihren ersten Hecht. Seinen ersten Meterhecht fing er bereits nach vier Monaten gemeinsam mit seinem Sohn vom Schlauchboot aus – ein unvergesslicher Moment. Sein Fazit: „Für alle, die neu im Hechtangeln sind: Max bringt euch schnell und mit Plan ans Ziel!"</p></div><div class="story-scroll-track"><div class="story-scroll-fill"></div></div></div>
+            </div>
+            <div class="story">
+              <div class="story-img"><iframe src="https://player.mediadelivery.net/embed/646386/5a9713ec-cf8a-484c-8f40-71c162e054d6?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div>
+              <div class="story-body"><div class="story-meta">Jonas aus Berlin</div><h3>Endlich verstehen, warum es läuft – oder nicht</h3><div class="story-text-wrap"><p>Jonas ist seit Jahren begeisterter Angler und hat auch schon einige schöne Fische gefangen. Allerdings hat er auch immer wieder Sessions dabei, in denen es nicht so gut läuft und er nie so richtig verstand, warum. Jonas lernte viel über seine Hausgewässer, probierte sehr viel an unterschiedlichen Seen in seiner Heimat aus und war auch in seinem Familienurlaub in Schweden richtig erfolgreich. Er weiß mittlerweile, mit verschiedenen Situationen am Wasser extrem gut umzugehen und fängt auch bedeutend besser.</p></div><div class="story-scroll-track"><div class="story-scroll-fill"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn" id="sliderPrev">‹</button>
+          <div class="slider-dots" id="sliderDots"></div>
+          <button class="slider-btn" id="sliderNext">›</button>
+        </div>
+        <div class="slider-hint">Weitere Kundenstimmen entdecken <span class="slider-hint-arrow">→</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="scroll-bridge"><span class="scroll-bridge-arrow">⌄</span></div>
+  <section class="community">
+    <div class="community-host">
+      <div class="sect-head">
+        <span class="sect-eyebrow">Kundenerlebnisse</span>
+        <h2 class="sect-title">Eine wachsende <em>Community</em>.</h2>
+        <p class="sect-sub">Hier siehst du die Fangerfolge meiner Kunden.</p>
+      </div>
+      <div class="cm-mosaic">
+        <div class="cm-tile t1"><img src="images/community/tile-1.jpg" alt="Kundenfang" loading="lazy"></div>
+        <div class="cm-tile t2"><img src="images/community/tile-2.jpg" alt="Kundenfang" loading="lazy"></div>
+        <div class="cm-tile t3 cm-tile--hero">
+          <img src="images/community/hero.jpg" alt="Hechtcamp Gruppenfoto" loading="lazy">
+          <div class="cm-badge">Hechtcamp · 2026</div>
+        </div>
+        <div class="cm-tile t4"><img src="images/community/tile-4.jpg" alt="Kundenfang" loading="lazy"></div>
+        <div class="cm-tile t5"><img src="images/community/tile-5.jpg" alt="Kundenfang" loading="lazy"></div>
+        <div class="cm-tile t6"><img src="images/community/tile-6.jpg" alt="Kundenfang" loading="lazy"></div>
+        <div class="cm-tile t7"><img src="images/community/tile-7.jpg" alt="Kundenfang" loading="lazy"></div>
+        <div class="cm-tile t8"><img src="images/community/tile-8.jpg" alt="Kundenfang" loading="lazy"></div>
+      </div>
+      <div class="cm-marquee">
+        <div class="cm-marquee-track">
+          <div class="cm-tile"><img src="images/community/marquee-1.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-2.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-3.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-4.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-5.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-6.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-7.jpg" alt="" loading="lazy"></div>
+          <!-- Duplikat für nahtlosen Loop -->
+          <div class="cm-tile"><img src="images/community/marquee-1.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-2.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-3.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-4.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-5.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-6.jpg" alt="" loading="lazy"></div>
+          <div class="cm-tile"><img src="images/community/marquee-7.jpg" alt="" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="cm-cta">
+        <a class="btn" href="termin.html">Jetzt unverbindliches Erstgespräch buchen!&nbsp; »</a>
+      </div>
+    </div>
+  </section>
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-head"><h2>Die wichtigsten Fragen & Antworten</h2></div>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q"><h3>Wie sieht das kostenlose und unverbindliche Erstgespräch aus?</h3><span class="faq-icon"></span></div><div class="faq-a"><p>Stell dir vor, du willst ein richtig guter Hecht-Angler werden. Beim ersten Gespräch sprechen wir ganz locker. Wir schauen, was du schon alles kannst und was du dir wünschst. Wir gucken auch, wo du so angelst und ob wir uns eine Zusammenarbeit vorstellen können.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><h3>Warum bietet ihr das Erstgespräch kostenlos an?</h3><span class="faq-icon"></span></div><div class="faq-a"><p>Manche Leute sind sich nicht sicher, ob wir wirklich helfen können. Wir machen ja was Neues beim Hecht-Angeln. Schon im ersten Gespräch demonstrieren wir dir, dass auch du mit dem richtigen Wissen und den passenden Techniken regelmäßig kapitale Hechte fangen kannst. Wir hoffen natürlich, dass du danach mit uns zusammenarbeiten willst, aber nur, wenn dir gefällt, wie wir das machen!</p></div></div>
+        <div class="faq-item"><div class="faq-q"><h3>Könnt ihr mir überhaupt helfen? Schließlich ist meine Situation speziell.</h3><span class="faq-icon"></span></div><div class="faq-a"><p>Klar können wir dir helfen! Auch wenn du denkst, dass deine Situation sehr speziell ist, haben wir schon viele Angler getroffen. Meistens sind es die gleichen Sachen, die schief laufen, wenn man keine großen Hechte fängt. Oft weiß man nicht genau, wo die Hechte sind, wie man sie überlistet oder man traut sich nicht so richtig. Wir zeigen dir Tricks und Kniffe, damit du die Monster-Hechte findest und fängst!</p></div></div>
+        <div class="faq-item"><div class="faq-q"><h3>Was für Kosten fallen an?</h3><span class="faq-icon"></span></div><div class="faq-a"><p>Das ist unterschiedlich! Jeder Angler ist anders und hat andere Wünsche. Manche wollen nur ein bisschen Hilfe, andere wollen ganz viel lernen. Wenn du mit uns zusammenarbeiten willst, sprechen wir erst mal umsonst. Dann schauen wir genau, was du brauchst, und machen dir ein Angebot, das zu dir passt.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><h3>Wie komme ich an ein kostenloses Erstgespräch?</h3><span class="faq-icon"></span></div><div class="faq-a"><p>1. Klick auf den Knopf unten und such dir einen Tag und eine Uhrzeit aus, die dir passen. 2. Füll das kurze Formular aus. 3. Wir rufen dich dann an dem Termin an, den du ausgesucht hast!</p></div></div>
+        <div class="faq-item"><div class="faq-q"><h3>Ist das Guiding?</h3><span class="faq-icon"></span></div><div class="faq-a"><p>Nein. Es geht nicht darum, dass jemand für dich angelt. Es geht darum, dass du selbst verstehst, wie du große Hechte systematisch findest und befischst.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><h3>Ich habe wenig Zeit. Bringt mir das trotzdem etwas?</h3><span class="faq-icon"></span></div><div class="faq-a"><p>Gerade dann. Das Coaching ist dafür gebaut, deine Angelzeit maximal effizient zu nutzen.</p></div></div>
+        <div class="faq-item"><div class="faq-q"><h3>Ist das Coaching für Anfänger oder Fortgeschrittene?</h3><span class="faq-icon"></span></div><div class="faq-a"><p>Für alle. Egal ob du gerade erst anfängst oder schon jahrelang auf Hecht angelst — wir holen dich da ab, wo du stehst, und bringen dich aufs nächste Level.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section id="termin" class="cta-band">
+    <div class="container">
+      <h2>Finde heraus, warum du keine konstant großen Hechte fängst.</h2>
+      <p>Im kostenlosen Erstgespräch analysieren wir deine aktuelle Situation, deine Gewässer, deine Technik und die größten Hebel für deine nächsten Sessions.</p>
+      <a class="btn" href="termin.html">Kostenloses Erstgespräch buchen →</a>
+    </div>
+  </section>
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="about-card">
+            <div class="about-card-img">
+              <img src="images/max-about.jpg" alt="Max Guder">
+              <div class="about-card-info">
+                <div class="about-card-name">Max Guder</div>
+                <div class="about-card-role">Hechtangler · Coach · European Pike Master</div>
+              </div>
+            </div>
+            <div class="about-badges">
+              <span class="about-badge">European Pike Master 2024</span>
+              <span class="about-badge">Seit 2017 Content Creator</span>
+              <span class="about-badge">Fisch & Fang · Der Raubfisch</span>
+            </div>
+            <div class="about-socials">
+              <a class="about-social" href="https://www.youtube.com/@harz_fishing" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube
+              </a>
+              <a class="about-social" href="https://www.instagram.com/harz_fishing/" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                Instagram
+              </a>
+              <a class="about-social" href="https://www.tiktok.com/@harz_fishing" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                TikTok
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <h2>Über Max Guder</h2>
+          <p>Das Angeln ist seit seiner frühen Kindheit seine größte Leidenschaft. Schon früh in seiner anglerischen Laufbahn zog es ihn an verschiedenste Gewässer, um seinen Zielfisch, den Hecht, auf jede erdenkliche Art und Weise zu überlisten. Mittlerweile reist er durch verschiedene Länder Europas, stets mit dem Ziel, <strong>den größten Hecht des jeweiligen Gewässers</strong> zu fangen. Durch seine jahrelange Leidenschaft und Erfahrung hat er ein tiefes Verständnis für das Verhalten von Hechten entwickelt und ein besonderes Gespür für kapitale Exemplare.</p>
+          <p>Seit 2017 begeistert Max auf diversen sozialen Medien <strong>hunderttausende Menschen</strong> mit seiner Passion und fasziniert sie mit riesigen Hechten. Zudem arbeitet er seit mehreren Jahren für die größten deutschen Angelmagazine <strong>„Fisch und Fang"</strong> und <strong>„Der Raubfisch"</strong>. Seit 2024 darf er sich außerdem <strong>Europameister im Hechtangeln</strong> (European Pike Master) nennen.</p>
+          <p>Seit einigen Jahren ist er in der europäischen Angelszene aktiv und hat bereits <strong>hunderten Anglern</strong> mit Rat und Tat bei der Suche nach ihrem persönlichen Hecht-Rekord zur Seite gestanden.</p>
+          <div class="about-cta"><a class="btn" href="termin.html">Kostenloses Erstgespräch buchen →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <div class="nl-box">
+        <span class="nl-eyebrow">Insider-Wissen</span>
+        <h2>Exklusive Einblicke ins erfolgreiche Hechtangeln</h2>
+        <p class="nl-sub">Saisonale Strategien, bewährte Köder und echte Einblicke aus dem Pike-Coaching — direkt in dein Postfach. Für alle, die bewusst und erfolgreich auf Hecht angeln möchten.</p>
+        <form class="nl-form" id="nlForm" novalidate>
+          <div class="nl-field" id="nlNameField">
+            <input type="text" name="firstName" id="nlName" placeholder="Dein Vorname" required autocomplete="given-name">
+            <div class="nl-error-msg">Bitte gib deinen Vornamen ein.</div>
+          </div>
+          <div class="nl-field" id="nlEmailField">
+            <input type="email" name="email" id="nlEmail" placeholder="Deine E-Mail-Adresse" required autocomplete="email">
+            <div class="nl-error-msg">Bitte gib eine gültige E-Mail-Adresse ein.</div>
+          </div>
+          <button type="submit" class="nl-submit" id="nlBtn">Strategien erhalten →</button>
+        </form>
+        <div class="nl-success" id="nlSuccess">
+          <div class="nl-success-icon">✓</div>
+          <h3>Fast geschafft!</h3>
+          <p>Bitte bestätige deine E-Mail-Adresse.<br>Schau in dein Postfach — auch im Spam-Ordner.</p>
+        </div>
+        <div class="nl-trust">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555d68" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Kein Spam. Abmeldung jederzeit. Nur relevante Strategien.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="footer-logo"><img src="images/logo.jpg" alt="Pike Coaching Logo"></div><div style="margin-bottom:8px">Hecht Coaching · <a href="termin.html" style="color:#a7b0ba;text-decoration:underline;text-underline-offset:2px">Erstgespräch</a></div><div><a href="legal.html#impressum" style="color:#737d87;text-decoration:underline;text-underline-offset:2px">Impressum</a> · <a href="legal.html#datenschutz" style="color:#737d87;text-decoration:underline;text-underline-offset:2px">Datenschutz</a> · <a href="legal.html#haftung" style="color:#737d87;text-decoration:underline;text-underline-offset:2px">Haftungsausschluss</a></div></footer>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  /* ── Card scroll reveal ── */
+  const dangerCards=document.querySelectorAll('.card.danger');
+  const cardObs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const idx=[...dangerCards].indexOf(e.target);
+        setTimeout(()=>e.target.classList.add('visible'),idx*250);
+        cardObs.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  dangerCards.forEach(c=>cardObs.observe(c));
+
+  /* ── Intro section progress bar ── */
+  (function(){
+    const section=document.getElementById('introSection');
+    const fill=document.getElementById('introFill');
+    const dot=document.getElementById('introDot');
+    if(!section||!fill||!dot) return;
+    let ticking=false;
+    const update=()=>{
+      const rect=section.getBoundingClientRect();
+      const vh=window.innerHeight;
+      const stickyOffset=110;
+      const scrollStart=rect.top-vh+stickyOffset;
+      const scrollEnd=rect.bottom-vh;
+      const total=scrollEnd-scrollStart;
+      const current=-scrollStart;
+      const p=Math.max(0,Math.min(1,total>0?current/total:0));
+      fill.style.height=p*100+'%';
+      dot.style.top=p*100+'%';
+      ticking=false;
+    };
+    window.addEventListener('scroll',()=>{
+      if(!ticking){ticking=true;requestAnimationFrame(update)}
+    },{passive:true});
+    update();
+  })();
+
+  /* ── Offer card stagger reveal ── */
+  const offerCards=document.querySelectorAll('.offer-card');
+  const offerObs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const delay=parseInt(e.target.dataset.delay||0)*180;
+        setTimeout(()=>{
+          e.target.style.transition='opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1)';
+          e.target.classList.add('visible');
+        },delay);
+        offerObs.unobserve(e.target);
+      }
+    });
+  },{threshold:.12});
+  offerCards.forEach(c=>offerObs.observe(c));
+
+  /* ── Data ── */
+  const steps=[
+    {n:1,color:'#E5484D',title:'Ausrüstungs- & Gewässer-Analyse',desc:'Lass uns gemeinsam deine Angelausrüstung überprüfen und die Gegebenheiten an deinem Hausgewässer analysieren.'},
+    {n:2,color:'#F76808',title:'Technik-Check',desc:'Schließe Wissenslücken und erweitere deine Fähigkeiten in den relevanten Angeltechniken.'},
+    {n:3,color:'#F5D90A',title:'Umsetzung & Strategische Planung',desc:'Wir entwickeln gemeinsam eine maßgeschneiderte Strategie, die alle Elemente deines Angelvorhabens berücksichtigt.'},
+    {n:4,color:'#30A46C',title:'Praxisphase & Begleitung',desc:'Starte deine Angeltour mit kontinuierlicher Unterstützung — Austausch direkt, wenn du am Wasser bist.'},
+    {n:5,color:'#3E63DD',title:'Ergebniskontrolle & Optimierung',desc:'Wir werten deine Sessions gemeinsam aus, identifizieren Verbesserungspotenziale und schärfen deinen Ansatz.'},
+    {n:6,color:'#D6409F',title:'Beratung auf Reisen',desc:'Nutze meine Expertise auch bei Angeltrips ins Ausland — von der Reiseplanung bis zur Spot-Wahl.'},
+  ];
+  const nodes=[
+    {x:680,y:120,side:'right'},{x:520,y:250,side:'left'},
+    {x:720,y:380,side:'right'},{x:520,y:530,side:'left'},
+    {x:720,y:680,side:'right'},{x:520,y:830,side:'left'},
+  ];
+  const W=1300,H=1000,GAP=24,CARD_W_PCT=28;
+
+  /* ── Build SVG path (Catmull-Rom → Bezier) ── */
+  function buildPath(pts){
+    let d=`M ${pts[0].x} ${pts[0].y}`;
+    for(let i=0;i<pts.length-1;i++){
+      const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=` C ${p1.x+(p2.x-p0.x)/6} ${p1.y+(p2.y-p0.y)/6}, ${p2.x-(p3.x-p1.x)/6} ${p2.y-(p3.y-p1.y)/6}, ${p2.x} ${p2.y}`;
+    }
+    return d;
+  }
+  const pathD=buildPath(nodes);
+
+  /* ── Create SVG ── */
+  const wrap=document.getElementById('fcfWrap');
+  const ns='http://www.w3.org/2000/svg';
+  const svg=document.createElementNS(ns,'svg');
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.setAttribute('class','fcf-svg');
+  svg.setAttribute('aria-hidden','true');
+
+  // Defs
+  svg.innerHTML=`
+    <defs>
+      <filter id="fcf-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="2.5" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <linearGradient id="fcf-line" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#C6F24E" stop-opacity="0.3"/>
+        <stop offset="50%" stop-color="#C6F24E" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#C6F24E" stop-opacity="0.6"/>
+      </linearGradient>
+    </defs>
+    <path d="${pathD}" stroke="#C6F24E" stroke-opacity="0.08" stroke-width="1.5" fill="none"/>
+  `;
+
+  // Animated main path
+  const mainPath=document.createElementNS(ns,'path');
+  mainPath.setAttribute('d',pathD);
+  mainPath.setAttribute('stroke','url(#fcf-line)');
+  mainPath.setAttribute('stroke-width','3');
+  mainPath.setAttribute('fill','none');
+  mainPath.setAttribute('stroke-linecap','round');
+  mainPath.setAttribute('filter','url(#fcf-glow)');
+  mainPath.style.transition='stroke-dashoffset 0.15s linear';
+  svg.appendChild(mainPath);
+
+  // Connector lines, halos, dots, numbers
+  const svgNodes=[];
+  nodes.forEach((nd,i)=>{
+    const isLeft=nd.side==='left';
+    const cx2=isLeft?nd.x-GAP:nd.x+GAP;
+    // connector line
+    const line=document.createElementNS(ns,'line');
+    line.setAttribute('x1',nd.x);line.setAttribute('y1',nd.y);
+    line.setAttribute('x2',cx2);line.setAttribute('y2',nd.y);
+    line.setAttribute('stroke','#C6F24E');line.setAttribute('stroke-width','1');
+    line.setAttribute('stroke-dasharray','2 3');line.setAttribute('stroke-opacity','0');
+    svg.appendChild(line);
+    // halo
+    const halo=document.createElementNS(ns,'circle');
+    halo.setAttribute('cx',nd.x);halo.setAttribute('cy',nd.y);halo.setAttribute('r','0');
+    halo.setAttribute('fill',steps[i].color);halo.setAttribute('opacity','0');
+    svg.appendChild(halo);
+    // main dot
+    const dot=document.createElementNS(ns,'circle');
+    dot.setAttribute('cx',nd.x);dot.setAttribute('cy',nd.y);dot.setAttribute('r','0');
+    dot.setAttribute('fill',steps[i].color);
+    dot.style.filter=`drop-shadow(0 0 6px ${steps[i].color})`;
+    svg.appendChild(dot);
+    // number
+    const txt=document.createElementNS(ns,'text');
+    txt.setAttribute('x',nd.x);txt.setAttribute('y',nd.y+1);
+    txt.setAttribute('text-anchor','middle');txt.setAttribute('dominant-baseline','middle');
+    txt.setAttribute('font-size','15');txt.setAttribute('font-weight','800');
+    txt.setAttribute('fill','#0A0D10');txt.setAttribute('opacity','0');
+    txt.setAttribute('style','font-family:system-ui,sans-serif');
+    txt.textContent=steps[i].n;
+    svg.appendChild(txt);
+    svgNodes.push({line,halo,dot,txt});
+  });
+
+  wrap.insertBefore(svg,wrap.firstChild);
+
+  // Measure path length
+  let pathLen=mainPath.getTotalLength()||1500;
+  mainPath.style.strokeDasharray=pathLen;
+  mainPath.style.strokeDashoffset=pathLen;
+
+  /* ── Create HTML Cards ── */
+  const cardEls=[];
+  nodes.forEach((nd,i)=>{
+    const isLeft=nd.side==='left';
+    const card=document.createElement('article');
+    card.className='fcf-card';
+    card.setAttribute('aria-label','Schritt '+steps[i].n);
+    // Position via %
+    const topPct=(nd.y/H)*100;
+    const leftPct=isLeft?((nd.x-GAP)/W)*100-CARD_W_PCT:((nd.x+GAP)/W)*100;
+    card.style.top=topPct+'%';
+    card.style.left=leftPct+'%';
+    card.style.transform=`translateY(-50%) translateX(${isLeft?'-10':'10'}px)`;
+    card.innerHTML=`
+      <div class="fcf-card-header">
+        <div class="fcf-card-title">${steps[i].title}</div>
+      </div>
+      <div class="fcf-card-desc">${steps[i].desc}</div>
+    `;
+    wrap.insertBefore(card,wrap.querySelector('.fcf-tape'));
+    cardEls.push({el:card,isLeft});
+  });
+
+  /* ── Scroll-driven animation ── */
+  /* ── Build tape measure SVG ── */
+  const tapeEl=document.getElementById('fcfTape');
+  const MAX_CM=140;
+  const tapeW=1400,tapeH=32;
+  let tapeSvg=`<svg viewBox="0 0 ${tapeW} ${tapeH}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">`;
+  tapeSvg+=`<rect x="0" y="0" width="${tapeW}" height="${tapeH}" rx="4" fill="#111" stroke="#333" stroke-width="1"/>`;
+  // Glow fill rect — clipped by progress
+  tapeSvg+=`<defs><clipPath id="tapeclip"><rect id="tapeClipRect" x="0" y="0" width="0" height="${tapeH}"/></clipPath></defs>`;
+  tapeSvg+=`<rect x="0" y="0" width="${tapeW}" height="${tapeH}" rx="4" fill="rgba(198,242,78,.12)" clip-path="url(#tapeclip)"/>`;
+  for(let cm=0;cm<=MAX_CM;cm++){
+    const x=cm*(tapeW/MAX_CM);
+    const is10=cm%10===0,is5=cm%5===0&&!is10;
+    const h=is10?tapeH*0.6:is5?tapeH*0.4:tapeH*0.22;
+    const col=is10?'#C6F24E':is5?'rgba(198,242,78,.5)':'rgba(198,242,78,.25)';
+    const w=is10?1.5:0.8;
+    tapeSvg+=`<line x1="${x}" y1="${tapeH}" x2="${x}" y2="${tapeH-h}" stroke="${col}" stroke-width="${w}"/>`;
+    if(is10){
+      tapeSvg+=`<text x="${x}" y="13" text-anchor="middle" fill="#C6F24E" font-size="10" font-weight="700" font-family="system-ui,sans-serif" opacity=".85">${cm}</text>`;
+    }
+  }
+  // cm label
+  tapeSvg+=`<text x="${tapeW-8}" y="13" text-anchor="end" fill="rgba(198,242,78,.4)" font-size="8" font-weight="600" font-family="system-ui,sans-serif">cm</text>`;
+  tapeSvg+=`</svg>`;
+  tapeEl.innerHTML=tapeSvg;
+  const tapeClip=document.getElementById('tapeClipRect');
+  function onScroll(){
+    const r=wrap.getBoundingClientRect();
+    const vh=window.innerHeight;
+    const total=vh+r.height;
+    const seen=vh-r.top;
+    const progress=Math.max(0,Math.min(1,seen/total));
+
+    // Path draw
+    // Normalized progress: 0→1 over the active scroll range
+    const P=Math.max(0,Math.min(1,(progress-0.05)/0.55));
+
+    // Path draws in sync with P
+    mainPath.style.strokeDashoffset=pathLen*(1-P);
+
+    // Progress bar matches P
+    tapeClip.setAttribute('width',P*tapeW);
+
+    // Nodes + cards — evenly spaced across P
+    nodes.forEach((_,i)=>{
+      // Each node triggers at i/6 of P, fades in over 1/6 window
+      const start=i/6;
+      const np=Math.max(0,Math.min(1,(P-start)/(1/6)));
+      const cardP=Math.max(0,(np-0.2)/0.8);
+      const r2=16*np;
+      // SVG elements
+      svgNodes[i].line.setAttribute('stroke-opacity',0.35*np);
+      svgNodes[i].halo.setAttribute('r',r2*1.9);
+      svgNodes[i].halo.setAttribute('opacity',0.18*np);
+      svgNodes[i].dot.setAttribute('r',r2);
+      svgNodes[i].txt.setAttribute('opacity',np);
+      // Card
+      const c=cardEls[i];
+      const tx=(1-cardP)*(c.isLeft?-10:10);
+      c.el.style.opacity=cardP;
+      c.el.style.transform=`translateY(-50%) translateX(${tx}px)`;
+      if(cardP>0) c.el.classList.add('visible');
+    });
+  }
+
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+
+  /* ── Story Slider ── */
+  const track=document.getElementById('storyTrack');
+  const slides=track.querySelectorAll('.story');
+  const dotsBox=document.getElementById('sliderDots');
+  const prevBtn=document.getElementById('sliderPrev');
+  const nextBtn=document.getElementById('sliderNext');
+  const perView=()=>{
+    const w=window.innerWidth;
+    if(w>1024) return 3;
+    if(w>=641) return 2;
+    return 1;
+  };
+  const totalPages=()=>Math.max(1,slides.length-perView()+1);
+  let page=0;
+
+  // Build dots — one per page
+  function buildDots(){
+    dotsBox.innerHTML='';
+    const tp=totalPages();
+    for(let i=0;i<tp;i++){
+      const d=document.createElement('button');
+      d.className='slider-dot'+(i===0?' active':'');
+      d.addEventListener('click',()=>goTo(i));
+      dotsBox.appendChild(d);
+    }
+  }
+  buildDots();
+
+  function goTo(p){
+    const tp=totalPages();
+    page=Math.max(0,Math.min(p,tp-1));
+    const gap=20; // matches CSS gap
+    const slideW=slides[0].offsetWidth+gap;
+    const offset=page*slideW;
+    track.style.transform=`translateX(-${offset}px)`;
+    const dots=dotsBox.querySelectorAll('.slider-dot');
+    dots.forEach((d,j)=>d.classList.toggle('active',j===page));
+    prevBtn.disabled=page===0;
+    nextBtn.disabled=page>=tp-1;
+  }
+
+  prevBtn.addEventListener('click',()=>goTo(page-1));
+  nextBtn.addEventListener('click',()=>goTo(page+1));
+  goTo(0);
+
+  // Touch swipe
+  let startX=0,dx=0;
+  track.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;dx=0},{passive:true});
+  track.addEventListener('touchmove',e=>{dx=e.touches[0].clientX-startX},{passive:true});
+  track.addEventListener('touchend',()=>{if(Math.abs(dx)>40){goTo(page+(dx<0?1:-1))}});
+  window.addEventListener('resize',()=>{buildDots();goTo(Math.min(page,totalPages()-1))});
+
+  /* ── Story scroll progress bars ── */
+  document.querySelectorAll('.story-text-wrap').forEach(wrap=>{
+    const fill=wrap.parentElement.querySelector('.story-scroll-fill');
+    if(!fill) return;
+    const update=()=>{
+      const max=wrap.scrollHeight-wrap.clientHeight;
+      const pct=max>0?(wrap.scrollTop/max)*100:100;
+      fill.style.width=pct+'%';
+    };
+    wrap.addEventListener('scroll',update,{passive:true});
+    // Initial check — hide track if text doesn't overflow
+    setTimeout(()=>{
+      if(wrap.scrollHeight<=wrap.clientHeight){
+        fill.parentElement.style.display='none';
+      }
+      update();
+    },200);
+  });
+
+  /* ── FAQ Accordion ── */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      const item=q.parentElement;
+      const wasOpen=item.classList.contains('open');
+      // Close all others
+      document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+      // Toggle clicked
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ── Newsletter Form ── */
+  const nlForm=document.getElementById('nlForm');
+  const nlName=document.getElementById('nlName');
+  const nlEmail=document.getElementById('nlEmail');
+  const nlBtn=document.getElementById('nlBtn');
+  const nlSuccess=document.getElementById('nlSuccess');
+  const nlNameField=document.getElementById('nlNameField');
+  const nlEmailField=document.getElementById('nlEmailField');
+
+  function validateEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)}
+
+  [nlName,nlEmail].forEach(inp=>{
+    inp.addEventListener('input',()=>{
+      inp.closest('.nl-field').classList.remove('has-error');
+      inp.classList.remove('nl-error');
+    });
+  });
+
+  nlForm.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    let valid=true;
+    if(!nlName.value.trim()){
+      nlNameField.classList.add('has-error');
+      nlName.classList.add('nl-error');
+      valid=false;
+    }
+    if(!nlEmail.value.trim()||!validateEmail(nlEmail.value)){
+      nlEmailField.classList.add('has-error');
+      nlEmail.classList.add('nl-error');
+      valid=false;
+    }
+    if(!valid) return;
+
+    nlBtn.disabled=true;
+    nlBtn.textContent='Wird gesendet…';
+
+    try{
+      // Replace with your actual endpoint
+      // await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({firstName:nlName.value.trim(),email:nlEmail.value.trim()})});
+      await new Promise(r=>setTimeout(r,1200)); // Mock delay
+      nlForm.classList.add('hidden');
+      nlSuccess.classList.add('active');
+    }catch(err){
+      nlBtn.disabled=false;
+      nlBtn.textContent='Strategien erhalten →';
+      alert('Ein Fehler ist aufgetreten. Bitte versuche es erneut.');
+    }
+  });
+});
+</script>
+<!-- Cookie Banner -->
+<div class="cookie-overlay" id="cookieOverlay"></div>
+<div class="cookie-bar" id="cookieBar">
+  <div class="cookie-bar-inner">
+    <div class="cookie-bar-text">Wir nutzen Cookies, um dir die bestmögliche Erfahrung auf unserer Website zu bieten. <a href="#" id="cookieMoreLink">Mehr erfahren</a></div>
+    <div class="cookie-bar-btns">
+      <button class="cookie-btn cookie-btn-reject" id="cookieReject">Ablehnen</button>
+      <button class="cookie-btn cookie-btn-settings" id="cookieOpenSettings">Einstellungen</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookieAcceptAll">Alle akzeptieren</button>
+    </div>
+  </div>
+</div>
+<div class="cookie-modal" id="cookieModal">
+  <div class="cookie-modal-head">
+    <h3>Cookie-Einstellungen</h3>
+    <button class="cookie-modal-close" id="cookieModalClose">✕</button>
+  </div>
+  <p class="cookie-modal-desc">Hier kannst du auswählen, welche Cookies du zulassen möchtest. Notwendige Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden.</p>
+  <div class="cookie-cat">
+    <div class="cookie-cat-info">
+      <h4>Notwendig</h4>
+      <p>Grundlegende Funktionen wie Seitennavigation und Zugang zu sicheren Bereichen.</p>
+    </div>
+    <span class="cookie-cat-badge">Immer aktiv</span>
+  </div>
+  <div class="cookie-cat">
+    <div class="cookie-cat-info">
+      <h4>Statistik</h4>
+      <p>Hilft uns zu verstehen, wie Besucher mit der Website interagieren.</p>
+    </div>
+    <label class="cookie-toggle">
+      <input type="checkbox" id="cookieStatistik" />
+      <span class="cookie-toggle-track"></span>
+    </label>
+  </div>
+  <div class="cookie-cat">
+    <div class="cookie-cat-info">
+      <h4>Marketing</h4>
+      <p>Wird verwendet, um Besuchern relevante Anzeigen und Kampagnen anzuzeigen.</p>
+    </div>
+    <label class="cookie-toggle">
+      <input type="checkbox" id="cookieMarketing" />
+      <span class="cookie-toggle-track"></span>
+    </label>
+  </div>
+  <div class="cookie-modal-btns">
+    <button class="cookie-btn cookie-btn-settings" id="cookieSaveSelection">Auswahl speichern</button>
+    <button class="cookie-btn cookie-btn-accept" id="cookieModalAcceptAll">Alle akzeptieren</button>
+  </div>
+</div>
+<script>
+(function(){
+  const bar=document.getElementById('cookieBar');
+  const overlay=document.getElementById('cookieOverlay');
+  const modal=document.getElementById('cookieModal');
+  const statCheck=document.getElementById('cookieStatistik');
+  const markCheck=document.getElementById('cookieMarketing');
+
+  function getConsent(){
+    try{const c=localStorage.getItem('hc_cookie_consent');return c?JSON.parse(c):null;}catch(e){return null;}
+  }
+  function setConsent(obj){
+    try{localStorage.setItem('hc_cookie_consent',JSON.stringify(obj));}catch(e){}
+  }
+  function hideBar(){bar.classList.remove('active');overlay.classList.remove('active');}
+  function hideModal(){modal.classList.remove('active');overlay.classList.remove('active');}
+  function showBar(){bar.classList.add('active');}
+  function showModal(){modal.classList.add('active');overlay.classList.add('active');}
+
+  function acceptAll(){
+    setConsent({necessary:true,statistik:true,marketing:true});
+    hideBar();hideModal();
+  }
+  function reject(){
+    setConsent({necessary:true,statistik:false,marketing:false});
+    hideBar();hideModal();
+  }
+  function saveSelection(){
+    setConsent({necessary:true,statistik:statCheck.checked,marketing:markCheck.checked});
+    hideBar();hideModal();
+  }
+
+  document.getElementById('cookieAcceptAll').addEventListener('click',acceptAll);
+  document.getElementById('cookieModalAcceptAll').addEventListener('click',acceptAll);
+  document.getElementById('cookieReject').addEventListener('click',reject);
+  document.getElementById('cookieSaveSelection').addEventListener('click',saveSelection);
+  document.getElementById('cookieOpenSettings').addEventListener('click',function(){hideBar();showModal();});
+  document.getElementById('cookieModalClose').addEventListener('click',function(){hideModal();showBar();});
+  document.getElementById('cookieMoreLink').addEventListener('click',function(e){e.preventDefault();hideBar();showModal();});
+  overlay.addEventListener('click',function(){hideModal();showBar();});
+
+  // Init
+  const consent=getConsent();
+  if(!consent){
+    setTimeout(function(){showBar();},600);
+  }
+})();
+</script>
+
+<script type="text/javascript">
+(function (v, i, d, a, l, y, t, c, s) {
+    y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+    if (!vsl){vsl=function(u,cb){
+        if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+        if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+        i.getElementsByTagName("head")[0].appendChild(s);
+    };}
+    vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+})(window, document, 'Vidalytics', 'vidalytics_embed_VorBXkW21Bl0XAq1', 'https://fast.vidalytics.com/embeds/maLclYQQ/VorBXkW21Bl0XAq1/');
+</script>
+</body>
+</html>
