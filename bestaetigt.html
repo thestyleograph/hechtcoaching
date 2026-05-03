@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Du bist dabei – Pike Coaching</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <style>
+    :root {
+      --bg: #050607;
+      --panel: #0d1115;
+      --acid: #b9f12f;
+      --text: #f3f5f7;
+      --muted: #a7b0ba;
+      --line: #1c2229;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--bg);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 18px 22px;
+      text-align: center;
+    }
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .header-mark {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .header-mark img { width: 100%; height: 100%; object-fit: cover; display: block }
+    .header-logo b { font-size: 20px; letter-spacing: -1px; color: #fff }
+    .header-logo small { display: block; color: var(--muted); font-size: 11px }
+
+    /* ── Main ── */
+    main { flex: 1 }
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 22px 80px;
+    }
+
+    /* ── Hero ── */
+    .hero-block { text-align: center; margin-bottom: 48px }
+    .icon-circle {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(185,241,47,.1);
+      border: 2px solid rgba(185,241,47,.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+    }
+    .icon-circle svg { width: 36px; height: 36px }
+    h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      font-weight: 950;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 20px;
+      color: var(--acid);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .desc {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ── Steps Card ── */
+    .steps-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 56px;
+    }
+    .steps-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .steps { display: flex; flex-direction: column; gap: 28px }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--acid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 15px;
+      color: #070707;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-content h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .step-content p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .step-email {
+      display: inline-block;
+      background: rgba(185,241,47,.08);
+      border: 1px solid rgba(185,241,47,.2);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--acid);
+      margin-top: 8px;
+      letter-spacing: .3px;
+    }
+
+    /* ── GIF Section ── */
+    .gif-section { margin-bottom: 56px }
+    .gif-section-head {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .gif-section-head h2 {
+      font-size: clamp(24px, 3.5vw, 32px);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.8px;
+      margin-bottom: 10px;
+    }
+    .gif-section-head p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .gif-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .gif-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color .3s;
+    }
+    .gif-card:hover {
+      border-color: rgba(185,241,47,.25);
+    }
+    .gif-card-media {
+      width: 100%;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #080a0d;
+      border-bottom: 1px solid var(--line);
+    }
+    .gif-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gif-card-body { padding: 22px }
+    .gif-card-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--acid);
+      background: rgba(185,241,47,.08);
+      border: 1px solid rgba(185,241,47,.18);
+      border-radius: 999px;
+      padding: 5px 14px;
+      margin-bottom: 12px;
+    }
+    .gif-card-body p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* ── Closing ── */
+    .closing {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .closing-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--acid);
+      color: #070707;
+      font-weight: 900;
+      border-radius: 8px;
+      padding: 18px 36px;
+      font-size: 17px;
+      text-decoration: none;
+      box-shadow: 0 0 28px rgba(185,241,47,.25);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 36px rgba(185,241,47,.4);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #020303;
+      color: #737d87;
+      text-align: center;
+      padding: 34px 22px 28px;
+      border-top: 1px solid #171d23;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    footer a {
+      color: #737d87;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    footer a:hover { color: var(--muted) }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .content { padding: 48px 18px 60px }
+      .gif-grid { grid-template-columns: 1fr }
+      .steps-card { padding: 28px 22px }
+      .btn { width: 100%; padding: 18px 24px }
+    }
+    @media (max-width: 640px) {
+      .icon-circle { width: 68px; height: 68px }
+      .icon-circle svg { width: 30px; height: 30px }
+      .gif-card-body { padding: 18px }
+    }
+    @media (max-width: 420px) {
+      .header-logo b { font-size: 15px }
+      .header-logo small { font-size: 10px }
+      .header-mark { width: 40px; height: 40px }
+    }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<header>
+  <a class="header-logo" href="index.html">
+    <div class="header-mark"><img src="images/logo.jpg" alt="Pike Coaching Logo"></div>
+    <div><b>PIKE COACHING</b><small>Max Guder · Catch the Biggest</small></div>
+  </a>
+</header>
+
+<main>
+  <div class="content">
+
+    <!-- Hero -->
+    <div class="hero-block">
+      <div class="icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#b9f12f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <h1>Du bist dabei!</h1>
+      <p class="subtitle">Danke für deine Bestätigung.</p>
+      <p class="desc">Willkommen im Pike Coaching Newsletter. Ab jetzt bekommst du regelmäßig wertvolle Inhalte, Updates und Einblicke direkt in dein Postfach.</p>
+    </div>
+
+    <!-- Steps Card -->
+    <div class="steps-card">
+      <h3>Damit du keine E-Mail verpasst:</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Speichere meine E-Mail-Adresse als Kontakt</h4>
+            <span class="step-email">max@pikecoach.com</span>
+            <p style="margin-top:10px">So erkennt dein Postfach, dass meine E-Mails wichtig für dich sind.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Verschiebe die E-Mail in deinen Posteingang</h4>
+            <p>Falls meine E-Mail im Spam-, Werbung- oder Updates-Ordner landet, verschiebe sie bitte in deinen normalen Posteingang.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Gmail: Ziehe die E-Mail in den Tab „Primär"</h4>
+            <p>Damit lernt Gmail, zukünftige E-Mails direkt im Hauptpostfach anzuzeigen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Markiere meine E-Mail als wichtig</h4>
+            <p>Optional, aber hilfreich — so werden meine E-Mails bevorzugt angezeigt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIF Section -->
+    <div class="gif-section">
+      <div class="gif-section-head">
+        <h2>So verschiebst du die E-Mail richtig</h2>
+        <p>Hier siehst du kurz, wie du mich bei Gmail und Outlook als sicheren Absender einordnest.</p>
+      </div>
+      <div class="gif-grid">
+        <div class="gif-card">
+          <div class="gif-card-media">
+            <img src="images/pike_coaching_gmail_spam_hinweis.gif" alt="Gmail Anleitung" loading="lazy">
+          </div>
+          <div class="gif-card-body">
+            <span class="gif-card-badge">Gmail</span>
+            <p>Ziehe die E-Mail aus „Werbung", „Updates" oder Spam in dein Hauptpostfach bzw. den Tab „Primär".</p>
+          </div>
+        </div>
+        <div class="gif-card">
+          <div class="gif-card-media">
+            <img src="images/pike_coaching_outlook_spam_hinweis.gif" alt="Outlook Anleitung" loading="lazy">
+          </div>
+          <div class="gif-card-body">
+            <span class="gif-card-badge">Outlook</span>
+            <p>Verschiebe die E-Mail aus dem Junk-Ordner in den Posteingang und markiere den Absender als sicher.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing -->
+    <div class="closing">
+      <p class="closing-text">Das war's. Du bist jetzt offiziell eingetragen.</p>
+      <a class="btn" href="index.html">Zurück zur Startseite</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <a href="legal.html#impressum">Impressum</a> · <a href="legal.html#datenschutz">Datenschutz</a> · <a href="legal.html#haftung">Haftungsausschluss</a>
+</footer>
+
+</body>
+</html>

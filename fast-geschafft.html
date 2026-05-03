@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fast geschafft – Pike Coaching</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <style>
+    :root {
+      --bg: #050607;
+      --panel: #0d1115;
+      --acid: #b9f12f;
+      --text: #f3f5f7;
+      --muted: #a7b0ba;
+      --line: #1c2229;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
+    body {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--bg);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 18px 22px;
+      text-align: center;
+    }
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .header-mark {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .header-mark img { width: 100%; height: 100%; object-fit: cover; display: block }
+    .header-logo b { font-size: 20px; letter-spacing: -1px; color: #fff }
+    .header-logo small { display: block; color: var(--muted); font-size: 11px }
+
+    /* ── Main ── */
+    main { flex: 1 }
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 72px 22px 80px;
+      text-align: center;
+    }
+
+    /* ── Icon ── */
+    .icon-circle {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(185,241,47,.1);
+      border: 2px solid rgba(185,241,47,.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+    }
+    .icon-circle svg { width: 36px; height: 36px }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      font-weight: 950;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .subtitle {
+      font-size: 20px;
+      color: var(--acid);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .desc {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 40px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Card ── */
+    .email-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    .email-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .email-card ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .email-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .email-card li::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--acid);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ── Button ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--acid);
+      color: #070707;
+      font-weight: 900;
+      border-radius: 8px;
+      padding: 18px 36px;
+      font-size: 17px;
+      text-decoration: none;
+      box-shadow: 0 0 28px rgba(185,241,47,.25);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 36px rgba(185,241,47,.4);
+    }
+    .hint {
+      font-size: 13px;
+      color: #5a6370;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #020303;
+      color: #737d87;
+      text-align: center;
+      padding: 34px 22px 28px;
+      border-top: 1px solid #171d23;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    footer a {
+      color: #737d87;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    footer a:hover { color: var(--muted) }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .content { padding: 48px 18px 60px }
+      .email-card { padding: 24px 20px }
+      .btn { width: 100%; padding: 18px 24px }
+      .icon-circle { width: 68px; height: 68px }
+      .icon-circle svg { width: 30px; height: 30px }
+    }
+    @media (max-width: 420px) {
+      .header-logo b { font-size: 15px }
+      .header-logo small { font-size: 10px }
+      .header-mark { width: 40px; height: 40px }
+    }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<header>
+  <a class="header-logo" href="index.html">
+    <div class="header-mark"><img src="images/logo.jpg" alt="Pike Coaching Logo"></div>
+    <div><b>PIKE COACHING</b><small>Max Guder · Catch the Biggest</small></div>
+  </a>
+</header>
+
+<main>
+  <div class="content">
+
+    <div class="icon-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#b9f12f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <polyline points="22,4 12,13 2,4"/>
+      </svg>
+    </div>
+
+    <h1>Fast geschafft...</h1>
+    <p class="subtitle">Bitte bestätige noch deine E-Mail-Adresse.</p>
+    <p class="desc">Ich habe dir gerade eine E-Mail geschickt. Klicke dort auf den Bestätigungslink, damit ich dir den Newsletter zusenden darf.</p>
+
+    <div class="email-card">
+      <h3>Falls du die E-Mail nicht findest:</h3>
+      <ul>
+        <li>Schau im Spam-Ordner nach</li>
+        <li>Prüfe bei Gmail den Tab „Werbung" oder „Updates"</li>
+        <li>Warte 1–2 Minuten, manchmal dauert die Zustellung kurz</li>
+      </ul>
+    </div>
+
+    <a class="btn" href="mailto:">Zum Postfach wechseln</a>
+    <p class="hint">Du erhältst den Newsletter erst, nachdem du deine Anmeldung bestätigt hast.</p>
+
+  </div>
+</main>
+
+<footer>
+  <a href="legal.html#impressum">Impressum</a> · <a href="legal.html#datenschutz">Datenschutz</a> · <a href="legal.html#haftung">Haftungsausschluss</a>
+</footer>
+
+</body>
+</html>
