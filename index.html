@@ -81,7 +81,31 @@
     .fcf-tape svg{width:100%;height:100%;display:block}
     .methode-cta{position:relative;z-index:2;text-align:center;margin-top:56px}
     .methode-cta .btn{background:var(--acid);color:#080808;font-size:21px;padding:22px 36px;border-radius:5px;box-shadow:0 6px 20px rgba(185,241,47,.3)}
-    @media(max-width:768px){.fcf-wrap{aspect-ratio:auto;height:auto;min-height:600px;padding-bottom:30px}.fcf-card{width:40%}}
+    /* ── Methode Mobile Timeline ── */
+    .fcf-mobile{display:none}
+    @media(max-width:1023px){
+      .fcf-wrap{display:none}
+      .fcf-mobile{display:block;position:relative;z-index:2;max-width:600px;margin:0 auto;padding:0 20px}
+      .fcf-timeline{position:relative;padding-left:44px}
+      .fcf-timeline::before{content:"";position:absolute;left:15px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,rgba(185,241,47,.1),rgba(185,241,47,.5) 20%,rgba(185,241,47,.5) 80%,rgba(185,241,47,.1))}
+      .fcf-tl-step{position:relative;padding-bottom:32px}
+      .fcf-tl-step:last-child{padding-bottom:0}
+      .fcf-tl-dot{position:absolute;left:-44px;top:0;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#0A0D10;z-index:2}
+      .fcf-tl-dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;opacity:.25;z-index:-1}
+      .fcf-tl-card{background:rgba(15,18,22,.92);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 22px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+      .fcf-tl-card h3{font-size:18px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:8px}
+      .fcf-tl-card p{font-size:15px;line-height:1.6;color:#A8ACB0;margin:0}
+    }
+    @media(max-width:768px){
+      .methode{padding:70px 0 80px}
+      .methode .section-head h2{font-size:32px;letter-spacing:-1px}
+      .fcf-mobile{padding:0 16px}
+      .fcf-tl-card{padding:16px 18px}
+      .fcf-tl-card h3{font-size:16px}
+      .fcf-tl-card p{font-size:14px}
+      .methode-cta{margin-top:40px}
+      .methode-cta .btn{font-size:17px;padding:18px 24px;width:100%}
+    }
     .offer{background:#fff;color:#10151b;padding:100px 0}
     .offer .section-head{text-align:center;max-width:800px;margin:0 auto 60px}
     .offer .section-eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--acid);margin-bottom:16px;background:#0a0d10;padding:8px 18px;border-radius:6px}
@@ -365,6 +389,54 @@
         <!-- Cards rendered by JS -->
         <div class="fcf-tape" id="fcfTape"></div>
       </div>
+      <!-- Mobile Timeline (visible < 1024px) -->
+      <div class="fcf-mobile">
+        <div class="fcf-timeline">
+          <div class="fcf-tl-step">
+            <div class="fcf-tl-dot" style="background:#E5484D"><span>1</span></div>
+            <div class="fcf-tl-card">
+              <h3>Ausrüstungs- & Gewässer-Analyse</h3>
+              <p>Lass uns gemeinsam deine Angelausrüstung überprüfen und die Gegebenheiten an deinem Hausgewässer analysieren.</p>
+            </div>
+          </div>
+          <div class="fcf-tl-step">
+            <div class="fcf-tl-dot" style="background:#F76808"><span>2</span></div>
+            <div class="fcf-tl-card">
+              <h3>Technik-Check</h3>
+              <p>Schließe Wissenslücken und erweitere deine Fähigkeiten in den relevanten Angeltechniken.</p>
+            </div>
+          </div>
+          <div class="fcf-tl-step">
+            <div class="fcf-tl-dot" style="background:#F5D90A"><span>3</span></div>
+            <div class="fcf-tl-card">
+              <h3>Umsetzung & Strategische Planung</h3>
+              <p>Wir entwickeln gemeinsam eine maßgeschneiderte Strategie, die alle Elemente deines Angelvorhabens berücksichtigt.</p>
+            </div>
+          </div>
+          <div class="fcf-tl-step">
+            <div class="fcf-tl-dot" style="background:#30A46C"><span>4</span></div>
+            <div class="fcf-tl-card">
+              <h3>Praxisphase & Begleitung</h3>
+              <p>Starte deine Angeltour mit kontinuierlicher Unterstützung — Austausch direkt, wenn du am Wasser bist.</p>
+            </div>
+          </div>
+          <div class="fcf-tl-step">
+            <div class="fcf-tl-dot" style="background:#3E63DD"><span>5</span></div>
+            <div class="fcf-tl-card">
+              <h3>Ergebniskontrolle & Optimierung</h3>
+              <p>Wir werten deine Sessions gemeinsam aus, identifizieren Verbesserungspotenziale und schärfen deinen Ansatz.</p>
+            </div>
+          </div>
+          <div class="fcf-tl-step">
+            <div class="fcf-tl-dot" style="background:#D6409F"><span>6</span></div>
+            <div class="fcf-tl-card">
+              <h3>Beratung auf Reisen</h3>
+              <p>Nutze meine Expertise auch bei Angeltrips ins Ausland — von der Reiseplanung bis zur Spot-Wahl.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="methode-cta"><a class="btn" href="termin.html">Jetzt unverbindliches Erstgespräch vereinbaren&nbsp; »</a></div>
     </div>
   </section>
