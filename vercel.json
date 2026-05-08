@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/home-page",
+      "destination": "https://pikecoach.com",
+      "permanent": true
+    }
+  ]
+}
