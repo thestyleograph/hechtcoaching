@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARZ FISHING – Links · Max Guder</title>
+  <meta name="description" content="Raubfisch-Angeln. Content. Coaching. Community. Alle Links von Max Guder / Harz Fishing an einem Ort.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HARZ FISHING – Max Guder">
+  <meta property="og:description" content="Raubfisch-Angeln. Content. Coaching. Community.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="images/og-image.jpg">
+  <style>
+    :root {
+      --bg: #050607;
+      --panel: #0d1115;
+      --panel2: #121820;
+      --acid: #b9f12f;
+      --acid-dim: rgba(185,241,47,.1);
+      --acid-mid: rgba(185,241,47,.25);
+      --text: #f3f5f7;
+      --muted: #8a919a;
+      --line: #1c2229;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit }
+    img { display: block; max-width: 100% }
+
+    /* ── Animations ── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px) }
+      to { opacity: 1; transform: translateY(0) }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .reveal.visible {
+      animation: fade-up .7s cubic-bezier(.22,1,.36,1) forwards;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 0 0 64px;
+      text-align: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/hero.jpg') center/cover no-repeat;
+      opacity: .2;
+      filter: brightness(.5);
+    }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5,6,7,.3) 0%, rgba(5,6,7,.85) 60%, var(--bg) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 56px 22px 0;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .hero-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      border: 3px solid rgba(185,241,47,.3);
+      box-shadow: 0 0 40px rgba(185,241,47,.15);
+    }
+    .hero-avatar img { width: 100%; height: 100%; object-fit: cover }
+    .hero-brand {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--acid);
+      margin-bottom: 8px;
+    }
+    .hero-name {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 950;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .hero-tagline {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0 auto 28px;
+    }
+
+    /* Stats */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 0;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -.5px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Section titles ── */
+    .sect-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--acid);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ── Primary CTAs (Shop + Coaching) ── */
+    .primary-links {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .link-primary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: linear-gradient(135deg, var(--panel2), var(--panel));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px 24px;
+      transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+    .link-primary:hover {
+      transform: translateY(-3px);
+      border-color: var(--acid-mid);
+      box-shadow: 0 12px 40px rgba(185,241,47,.12);
+    }
+    .link-primary-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-primary-icon svg { width: 24px; height: 24px }
+    .link-primary-text { flex: 1; min-width: 0 }
+    .link-primary-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .link-primary-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .link-primary-arrow {
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: color .3s, transform .3s;
+    }
+    .link-primary:hover .link-primary-arrow {
+      color: var(--acid);
+      transform: translateX(3px);
+    }
+    .icon-coaching { background: rgba(185,241,47,.12); border: 1px solid rgba(185,241,47,.2) }
+    .icon-coaching svg { stroke: var(--acid) }
+    .icon-shop { background: rgba(255,122,47,.1); border: 1px solid rgba(255,122,47,.18) }
+    .icon-shop svg { stroke: #ff7a2f }
+
+    /* ── Social Grid ── */
+    .social-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .link-social {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+    .link-social:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.15);
+      box-shadow: 0 8px 28px rgba(0,0,0,.35);
+    }
+    .link-social:hover .link-social-icon { transform: scale(1.1) }
+    .link-social-icon { transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s }
+    .link-social:hover .icon-ig { box-shadow: 0 0 18px rgba(228,64,95,.3) }
+    .link-social:hover .icon-yt { box-shadow: 0 0 18px rgba(255,0,0,.25) }
+    .link-social:hover .icon-tt { box-shadow: 0 0 18px rgba(255,255,255,.15) }
+    .link-social:hover .icon-sp { box-shadow: 0 0 18px rgba(30,215,96,.25) }
+    .link-social:hover .icon-mail { box-shadow: 0 0 18px rgba(185,241,47,.25) }
+    .link-social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .link-social-icon svg { width: 18px; height: 18px }
+    .link-social-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .link-social-handle {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .icon-ig { background: linear-gradient(135deg, rgba(228,64,95,.15), rgba(181,70,220,.15)); border: 1px solid rgba(228,64,95,.2) }
+    .icon-ig svg { stroke: #e4405f }
+    .icon-yt { background: rgba(255,0,0,.1); border: 1px solid rgba(255,0,0,.15) }
+    .icon-yt svg { stroke: #ff0000 }
+    .icon-tt { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1) }
+    .icon-tt svg { stroke: #fff }
+    .icon-sp { background: rgba(30,215,96,.1); border: 1px solid rgba(30,215,96,.15) }
+    .icon-sp svg { stroke: #1ed760 }
+    .icon-mail { background: rgba(185,241,47,.08); border: 1px solid rgba(185,241,47,.15) }
+    .icon-mail svg { stroke: var(--acid) }
+    /* Email full-width */
+    .link-social.full { grid-column: 1 / -1 }
+
+    /* ── Featured Content ── */
+    .featured {
+      margin-bottom: 48px;
+    }
+    .featured-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s;
+      margin-bottom: 14px;
+    }
+    .featured-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.1);
+    }
+    .featured-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #0a0d10;
+      overflow: hidden;
+      position: relative;
+    }
+    .featured-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.85);
+      transition: transform .5s cubic-bezier(.22,1,.36,1), filter .3s;
+    }
+    .featured-card:hover .featured-thumb img {
+      transform: scale(1.03);
+      filter: brightness(1);
+    }
+    .featured-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .featured-play-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(5,6,7,.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s, background .3s;
+    }
+    .featured-card:hover .featured-play-btn {
+      transform: scale(1.08);
+      background: rgba(185,241,47,.2);
+    }
+    .featured-play-btn svg { width: 22px; height: 22px; margin-left: 2px }
+    .featured-body { padding: 18px 20px }
+    .featured-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--acid);
+      background: var(--acid-dim);
+      border: 1px solid rgba(185,241,47,.18);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 10px;
+    }
+    .featured-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    /* ── Coaching Highlight ── */
+    .coaching-section {
+      margin-bottom: 48px;
+    }
+    .coaching-card {
+      background: linear-gradient(145deg, rgba(185,241,47,.06), rgba(185,241,47,.02));
+      border: 1px solid var(--acid-mid);
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: box-shadow .3s;
+    }
+    .coaching-card:hover {
+      box-shadow: 0 0 50px rgba(185,241,47,.1);
+    }
+    .coaching-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--acid-dim);
+      border: 1.5px solid var(--acid-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .coaching-icon svg { width: 24px; height: 24px; stroke: var(--acid) }
+    .coaching-card h3 {
+      font-size: 22px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: -.5px;
+    }
+    .coaching-card p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 380px;
+      margin: 0 auto 24px;
+    }
+    .coaching-badges {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .coaching-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--acid);
+      background: var(--acid-dim);
+      border: 1px solid rgba(185,241,47,.15);
+      border-radius: 999px;
+      padding: 5px 14px;
+      white-space: nowrap;
+    }
+    .btn-acid {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--acid);
+      color: #070707;
+      font-weight: 900;
+      font-size: 16px;
+      border-radius: 10px;
+      padding: 16px 32px;
+      box-shadow: 0 0 28px rgba(185,241,47,.25);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-acid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(185,241,47,.4);
+    }
+
+    /* ── About ── */
+    .about-section {
+      margin-bottom: 48px;
+    }
+    .about-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    .about-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .about-card p:last-child { margin-bottom: 0 }
+    .about-card strong { color: #c8cdd2 }
+
+    /* ── Newsletter ── */
+    .newsletter-section {
+      margin-bottom: 56px;
+    }
+    .newsletter-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .newsletter-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .newsletter-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .newsletter-card .btn-acid {
+      font-size: 15px;
+      padding: 14px 28px;
+      width: 100%;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 22px 40px;
+      border-top: 1px solid var(--line);
+    }
+    .footer-logo {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 12px;
+    }
+    .footer-logo img { width: 100%; height: 100%; object-fit: cover }
+    .footer-brand {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      font-size: 12px;
+      color: #4a5058;
+      margin-bottom: 14px;
+    }
+    .footer-links a {
+      color: #5a6370;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .footer-links a:hover { color: var(--muted) }
+    .footer-copy {
+      font-size: 11px;
+      color: #3a4048;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      .hero-content { padding: 44px 18px 0 }
+      .hero-avatar { width: 100px; height: 100px }
+      .hero-stats { gap: 24px }
+      .stat-num { font-size: 20px }
+      .social-links { grid-template-columns: 1fr }
+      .link-social.full { grid-column: auto }
+      .coaching-card { padding: 28px 22px }
+      .btn-acid { width: 100% }
+    }
+    @media (max-width: 380px) {
+      .hero-brand { font-size: 13px; letter-spacing: 3px }
+      .hero-name { font-size: 26px }
+    }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- ═══ Hero ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="hero-avatar reveal">
+      <img src="images/logo.jpg" alt="Max Guder – Harz Fishing">
+    </div>
+    <div class="hero-brand reveal">Harz Fishing</div>
+    <h1 class="hero-name reveal">Max Guder</h1>
+    <p class="hero-tagline reveal">Raubfisch-Angeln. Content. Coaching. Community.</p>
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <div class="stat-num">185K+</div>
+        <div class="stat-label">Follower</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">EPM '24</div>
+        <div class="stat-label">European Pike Master</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- ═══ Primary CTAs ═══ -->
+  <div class="sect-label reveal">Highlights</div>
+  <div class="primary-links">
+    <a class="link-primary reveal" href="termin.html">
+      <div class="link-primary-icon icon-coaching">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="link-primary-text">
+        <div class="link-primary-title">Kostenloses Erstgespräch</div>
+        <div class="link-primary-desc">Pike Coaching — Dein System für kapitale Hechte</div>
+      </div>
+      <svg class="link-primary-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    <a class="link-primary reveal" href="https://luregod.de/pro/harz-fishing" target="_blank" rel="noopener noreferrer">
+      <div class="link-primary-icon icon-shop">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </div>
+      <div class="link-primary-text">
+        <div class="link-primary-title">Luregod Shop</div>
+        <div class="link-primary-desc">Meine Empfehlungen für Raubfischköder</div>
+      </div>
+      <svg class="link-primary-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </div>
+
+  <!-- ═══ Social Links ═══ -->
+  <div class="sect-label reveal">Social Media</div>
+  <div class="social-links">
+    <a class="link-social reveal" href="https://www.instagram.com/harz_fishing" target="_blank" rel="noopener noreferrer">
+      <div class="link-social-icon icon-ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div>
+        <div class="link-social-name">Instagram</div>
+        <div class="link-social-handle">@harz_fishing</div>
+      </div>
+    </a>
+    <a class="link-social reveal" href="https://www.youtube.com/@harz_fishing" target="_blank" rel="noopener noreferrer">
+      <div class="link-social-icon icon-yt">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10 8 16 12 10 16" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div>
+        <div class="link-social-name">YouTube</div>
+        <div class="link-social-handle">@harz_fishing</div>
+      </div>
+    </a>
+    <a class="link-social reveal" href="https://www.tiktok.com/@harz_fishing" target="_blank" rel="noopener noreferrer">
+      <div class="link-social-icon icon-tt">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+      </div>
+      <div>
+        <div class="link-social-name">TikTok</div>
+        <div class="link-social-handle">@harz_fishing</div>
+      </div>
+    </a>
+    <a class="link-social reveal" href="https://open.spotify.com/show/79pO1fQU5qJOvn7IuIXqXr" target="_blank" rel="noopener noreferrer">
+      <div class="link-social-icon icon-sp">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 15s2-1 4-1 4 1 4 1"/><path d="M7 12s2.5-1.5 5-1.5 5 1.5 5 1.5"/><path d="M6.5 9S9.5 7 12 7s5.5 2 5.5 2"/></svg>
+      </div>
+      <div>
+        <div class="link-social-name">Podcast</div>
+        <div class="link-social-handle">Spotify</div>
+      </div>
+    </a>
+    <a class="link-social full reveal" href="mailto:max@pikecoach.com">
+      <div class="link-social-icon icon-mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+      </div>
+      <div>
+        <div class="link-social-name">E-Mail</div>
+        <div class="link-social-handle">max@pikecoach.com</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ═══ Featured Content ═══ -->
+  <div class="featured">
+    <div class="sect-label reveal">Featured Content</div>
+    <a class="featured-card reveal" href="https://www.youtube.com/@harz_fishing" target="_blank" rel="noopener noreferrer">
+      <div class="featured-thumb">
+        <img src="images/hecht-bg.jpg" alt="Neuestes Video" loading="lazy">
+        <div class="featured-play">
+          <div class="featured-play-btn">
+            <svg viewBox="0 0 24 24" fill="#fff" stroke="none"><polygon points="8 5 20 12 8 19"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="featured-body">
+        <span class="featured-badge">Neuestes Video</span>
+        <div class="featured-title">Schau dir mein neuestes Video auf YouTube an</div>
+      </div>
+    </a>
+    <a class="featured-card reveal" href="https://open.spotify.com/show/79pO1fQU5qJOvn7IuIXqXr" target="_blank" rel="noopener noreferrer">
+      <div class="featured-body">
+        <span class="featured-badge">Podcast</span>
+        <div class="featured-title">Harz Fishing Podcast — Neue Folgen auf Spotify</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ═══ Coaching Section ═══ -->
+  <div class="coaching-section reveal">
+    <div class="coaching-card">
+      <div class="coaching-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Pike Coaching</h3>
+      <p>Lerne mit einem klaren System, wie du konstant kapitale Hechte fängst — individuell auf dich und dein Gewässer abgestimmt.</p>
+      <div class="coaching-badges">
+        <span class="coaching-badge">European Pike Master 2024</span>
+        <span class="coaching-badge">1:1 Coaching</span>
+      </div>
+      <a class="btn-acid" href="termin.html">Kostenloses Erstgespräch buchen</a>
+    </div>
+  </div>
+
+  <!-- ═══ About ═══ -->
+  <div class="about-section">
+    <div class="sect-label reveal">Über mich</div>
+    <div class="about-card reveal">
+      <p><strong>Max Guder</strong> — Raubfischangler, Content Creator und Coach. Seit über 10 Jahren auf der Jagd nach kapitalen Hechten, bekannt durch YouTube, Instagram und TikTok als <strong>Harz Fishing</strong>.</p>
+      <p>European Pike Master 2024. Veröffentlicht in Fisch & Fang und Der Raubfisch. Mein Ziel: Dir zeigen, wie du mit System und Strategie die Hechte fängst, von denen du immer geträumt hast.</p>
+    </div>
+  </div>
+
+  <!-- ═══ Newsletter ═══ -->
+  <div class="newsletter-section reveal">
+    <div class="newsletter-card">
+      <h3>Newsletter</h3>
+      <p>Tipps, Strategien und Einblicke direkt in dein Postfach — kostenlos.</p>
+      <a class="btn-acid" href="index.html#newsletter">Jetzt eintragen</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ Footer ═══ -->
+<footer>
+  <div class="footer-logo"><img src="images/logo.jpg" alt="Pike Coaching Logo"></div>
+  <div class="footer-brand">Harz Fishing</div>
+  <div class="footer-links">
+    <a href="legal.html#impressum">Impressum</a> · <a href="legal.html#datenschutz">Datenschutz</a> · <a href="legal.html#haftung">Haftungsausschluss</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Max Guder · Harz Fishing</div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!els.length) return;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e,i){
+      if(e.isIntersecting){
+        var delay=0;
+        // stagger siblings
+        var parent=e.target.parentElement;
+        var siblings=parent.querySelectorAll(':scope > .reveal');
+        siblings.forEach(function(s,si){
+          if(s===e.target) delay=si*80;
+        });
+        setTimeout(function(){
+          e.target.classList.add('visible');
+        },delay);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.1});
+  els.forEach(function(el){ obs.observe(el) });
+})();
+</script>
+
+</body>
+</html>
